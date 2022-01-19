@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.sorting.algorithms.SortingAnimationController">
+   <children>
+      <Pane prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: black"/>
+      <HBox layoutY="625.0" prefHeight="75.0" prefWidth="672.0">
+         <children>
+            <ChoiceBox prefWidth="150.0">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin></ChoiceBox>
+            <Button mnemonicParsing="false" text="Sort">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Next">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Previous">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="New Bars">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+         </children></HBox>
+   </children>
+</AnchorPane>

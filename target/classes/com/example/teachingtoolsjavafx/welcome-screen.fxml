@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="550.0" style="-fx-background-color: #1c1c1c" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.home.screen.HomeScreenController">
+   <children>
+      <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="350.0" prefWidth="550.0">
+         <children>
+            <Label fx:id="welcomeLabel" contentDisplay="CENTER" prefHeight="56.0" prefWidth="169.0" text="Teaching Tools" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="100.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="550.0">
+               <children>
+                  <Button fx:id="sortingAlgorithmsButton" mnemonicParsing="false" onAction="#goToSortingAlgorithms" text="Sorting Algorithms">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="pathingAlgorithmsButton" mnemonicParsing="false" onAction="#goToPathingAlgorithms" text="Pating Algorithms">
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
