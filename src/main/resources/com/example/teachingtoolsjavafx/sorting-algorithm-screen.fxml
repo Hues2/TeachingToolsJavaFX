@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.sorting.algorithms.SortingAnimationController">
    <children>
-      <Pane prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: black"/>
-      <HBox layoutY="625.0" prefHeight="75.0" prefWidth="672.0">
+      <Pane fx:id="animationPane" prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: black" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" prefHeight="17.0" prefWidth="329.0" text="(choseAlgorithm) Algorithm" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></Label>
+      <HBox fx:id="hboxPanel" layoutY="625.0" prefHeight="75.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c">
          <children>
-            <ChoiceBox prefWidth="150.0">
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backHome" text="Home">
                <HBox.margin>
-                  <Insets left="20.0" top="25.0" />
+                  <Insets left="10.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <ChoiceBox fx:id="choiceBox" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets left="10.0" top="25.0" />
                </HBox.margin></ChoiceBox>
-            <Button mnemonicParsing="false" text="Sort">
+            <Spinner fx:id="spinner">
                <HBox.margin>
-                  <Insets left="20.0" top="25.0" />
+                  <Insets left="10.0" top="25.0" />
+               </HBox.margin>
+            </Spinner>
+            <Button fx:id="sortButton" mnemonicParsing="false" onAction="#sortButton" text="Sort">
+               <HBox.margin>
+                  <Insets left="10.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Next">
+            <Button fx:id="nextButton" mnemonicParsing="false" text="Next">
                <HBox.margin>
-                  <Insets left="20.0" top="25.0" />
+                  <Insets left="10.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Previous">
+            <Button fx:id="previousButton" mnemonicParsing="false" text="Previous">
                <HBox.margin>
-                  <Insets left="20.0" top="25.0" />
+                  <Insets left="10.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="New Bars">
+            <Button fx:id="resetButton" mnemonicParsing="false" text="New Bars">
                <HBox.margin>
-                  <Insets left="20.0" top="25.0" />
+                  <Insets left="10.0" top="25.0" />
                </HBox.margin>
             </Button>
          </children></HBox>
    </children>
+   <cursor>
+      <Cursor fx:constant="CLOSED_HAND" />
+   </cursor>
 </AnchorPane>
