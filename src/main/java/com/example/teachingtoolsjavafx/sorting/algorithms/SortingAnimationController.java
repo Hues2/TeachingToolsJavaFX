@@ -89,13 +89,9 @@ public class SortingAnimationController {
         listOfLists = sortingAlgorithm.getSteps();
     }
 
-    public SortingAnimationController(){
 
-//        bubbleSort = new BubbleSort(bars);
-//        listOfLists = bubbleSort.getSteps();
-//        List<SortingAlgorithm> sortingAlgorithmsList = new ArrayList<>();
-//        sortingAlgorithmsList.add(new BubbleSort(bars));
-    }
+
+    public SortingAnimationController(){}
 
 
 
@@ -120,7 +116,7 @@ public class SortingAnimationController {
 
         timeLine = new Timeline(
                 new KeyFrame(Duration.seconds(speedSlider.getValue()), (ActionEvent event) -> {
-                    for (int i = 0; i < numberOfBars - 1; i++) {
+                    for (int i = 0; i < numberOfBars; i++) {
                         listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
                         listOfLists.get(counter)[i].setFill(Color.CRIMSON);
                         RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
@@ -233,8 +229,7 @@ public class SortingAnimationController {
     public void reset(){
         counter = 0;
         listOfLists = new ArrayList<>();
-        Bar[] newBars = new Bar[numberOfBars];
-        newBars = RandomBars.getRandomBars(numberOfBars);
+        Bar[] newBars = RandomBars.getRandomBars(numberOfBars);
         choiceBox = new ChoiceBox();
         choiceBox.getItems().add(new BubbleSort(newBars));
         choiceBox.getSelectionModel().select(0);
