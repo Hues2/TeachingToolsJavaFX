@@ -1,7 +1,34 @@
-✖ Make the algorithm explanation title change to the selected algorithm from the choice box
+✖ Make the algorithm explanation title change to the selected
+    algorithm from the choice box
 
 ✖ Right now the sorting algorithm controller only uses bubble sort
-    Make the spinner allow the user to pick what algorithm they want to see
+    Make the choice box allow the user to pick what algorithm they want to see
+
+✖ Implement pause button
+
+
+
+✖ Implement the choice box
+
+✖ Implement next button
+
+✖ Implement previous button
+
+✖ Make method that runs when user chooses what algorithm to use
+    This will instantiate the chosen algorithm which will sort it
+    and then add fill the listOfLists.
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+✔ Make bubble sort algorithm visual
+
+✔ Disable required buttons when list is being sorted
+
+✔ Let user change speed of bubble sort algorithm
+
 
 ✖✖✖✖
 ✔✔✔✔

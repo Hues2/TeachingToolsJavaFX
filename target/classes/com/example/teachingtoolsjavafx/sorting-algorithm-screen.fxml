@@ -24,17 +24,22 @@
                <HBox.margin>
                   <Insets left="10.0" top="25.0" />
                </HBox.margin></ChoiceBox>
-            <Spinner fx:id="spinner">
+            <Slider fx:id="speedSlider" blockIncrement="0.1" max="2.0" min="0.01" showTickLabels="true" showTickMarks="true" value="25.0">
                <HBox.margin>
-                  <Insets left="10.0" top="25.0" />
+                  <Insets left="10.0" top="30.0" />
                </HBox.margin>
-            </Spinner>
+            </Slider>
             <Button fx:id="sortButton" mnemonicParsing="false" onAction="#sortButton" text="Sort">
                <HBox.margin>
                   <Insets left="10.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="nextButton" mnemonicParsing="false" text="Next">
+            <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pause" text="Pause">
+               <HBox.margin>
+                  <Insets left="10.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#next" text="Next">
                <HBox.margin>
                   <Insets left="10.0" top="25.0" />
                </HBox.margin>
@@ -46,7 +51,7 @@
             </Button>
             <Button fx:id="resetButton" mnemonicParsing="false" text="New Bars">
                <HBox.margin>
-                  <Insets left="10.0" top="25.0" />
+                  <Insets left="10.0" right="1.0" top="25.0" />
                </HBox.margin>
             </Button>
          </children></HBox>
