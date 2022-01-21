@@ -4,7 +4,6 @@ import com.example.teachingtoolsjavafx.Main;
 import com.example.teachingtoolsjavafx.bars.Bar;
 import com.example.teachingtoolsjavafx.bars.RandomBars;
 import javafx.animation.*;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +22,6 @@ import javafx.util.StringConverter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -38,7 +36,7 @@ public class SortingAnimationController {
 
     private Timeline timeLine;
     private ArrayList<Bar[]> listOfLists;
-    //private BubbleSort bubbleSort;
+
 
     @FXML
     private Pane animationPane;
@@ -59,6 +57,7 @@ public class SortingAnimationController {
     @FXML
     private Button resetButton;
 
+
     private static SortingAlgorithm sortingAlgorithm;
 
     // This method runs and initialises all the FXML items
@@ -67,6 +66,8 @@ public class SortingAnimationController {
 
         bars = RandomBars.getRandomBars(numberOfBars);
         animationPane.getChildren().addAll(Arrays.asList(bars));
+
+        // Add all the sorting options
         choiceBox.getItems().add(new BubbleSort(bars));
         choiceBox.getSelectionModel().select(0);
 
@@ -168,7 +169,7 @@ public class SortingAnimationController {
             if (counter == listOfLists.size() - 1){
                 nextButton.setDisable(true);
             }
-            for (int i = 0; i < numberOfBars - 1; i++) {
+            for (int i = 0; i < numberOfBars; i++) {
                 listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
                 listOfLists.get(counter)[i].setFill(Color.CRIMSON);
                 RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
@@ -204,7 +205,7 @@ public class SortingAnimationController {
             if(counter == 0){
                 previousButton.setDisable(true);
             }
-            for (int i = 0; i < numberOfBars - 1; i++) {
+            for (int i = 0; i < numberOfBars; i++) {
                 listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
                 listOfLists.get(counter)[i].setFill(Color.CRIMSON);
                 RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);

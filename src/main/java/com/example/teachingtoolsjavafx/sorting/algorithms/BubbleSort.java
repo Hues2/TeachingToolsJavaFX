@@ -4,7 +4,7 @@ import com.example.teachingtoolsjavafx.bars.Bar;
 import java.util.ArrayList;
 
 
-public class BubbleSort extends SortingAlgorithm{
+public class BubbleSort implements SortingAlgorithm {
     public Bar[] randomBars;
     private int currentIndex = 0;
     private int traversingIndex = 1;
