@@ -4,6 +4,7 @@ import com.example.teachingtoolsjavafx.Main;
 import com.example.teachingtoolsjavafx.bars.Bar;
 import com.example.teachingtoolsjavafx.bars.RandomBars;
 import javafx.animation.*;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +18,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.StringConverter;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -34,7 +38,7 @@ public class SortingAnimationController {
 
     private Timeline timeLine;
     private ArrayList<Bar[]> listOfLists;
-    private BubbleSort bubbleSort;
+    //private BubbleSort bubbleSort;
 
     @FXML
     private Pane animationPane;
@@ -55,23 +59,54 @@ public class SortingAnimationController {
     @FXML
     private Button resetButton;
 
-    public SortingAnimationController(){
-        bars = RandomBars.getRandomBars(numberOfBars);
-        // This
-        bubbleSort = new BubbleSort(bars);
-        listOfLists = bubbleSort.getSteps();
-    }
-
+    private static SortingAlgorithm sortingAlgorithm;
 
     // This method runs and initialises all the FXML items
     @FXML
     private void initialize() {
+
+        bars = RandomBars.getRandomBars(numberOfBars);
         animationPane.getChildren().addAll(Arrays.asList(bars));
+        choiceBox.getItems().add(new BubbleSort(bars));
+        choiceBox.getSelectionModel().select(0);
+
+        choiceBox.setConverter(new StringConverter<SortingAlgorithm>() {
+            @Override
+            public String toString(SortingAlgorithm sortingAlgorithm) {
+                if (sortingAlgorithm == null){
+                    return "";
+                }else{
+                    return sortingAlgorithm.getClass().getSimpleName();
+                }
+            }
+            @Override
+            public SortingAlgorithm fromString(String s) {
+                return null;
+            }
+        });
+        sortingAlgorithm = (SortingAlgorithm) choiceBox.getSelectionModel().getSelectedItem();
+        sortingAlgorithm.sort();
+        listOfLists = sortingAlgorithm.getSteps();
     }
+
+    public SortingAnimationController(){
+
+//        bubbleSort = new BubbleSort(bars);
+//        listOfLists = bubbleSort.getSteps();
+//        List<SortingAlgorithm> sortingAlgorithmsList = new ArrayList<>();
+//        sortingAlgorithmsList.add(new BubbleSort(bars));
+    }
+
+
+
 
 
     // This method runs when the sort button is clicked
     public void sortButton() throws InterruptedException {
+//        sortingAlgorithm = (SortingAlgorithm) choiceBox.getSelectionModel().getSelectedItem();
+//        sortingAlgorithm.sort();
+        listOfLists = sortingAlgorithm.getSteps();
+        System.out.println(listOfLists.size());
         // When the user starts to sort the list, make the home button disabled
         homeButton.setDisable(true);
         choiceBox.setDisable(true);
@@ -121,6 +156,7 @@ public class SortingAnimationController {
     }
 
     public void next(){
+
         if (counter < listOfLists.size() - 1){
             sortButton.setDisable(false);
             nextButton.setDisable(false);
@@ -197,12 +233,16 @@ public class SortingAnimationController {
     public void reset(){
         counter = 0;
         listOfLists = new ArrayList<>();
-        bars = new Bar[numberOfBars];
-        bars = RandomBars.getRandomBars(numberOfBars);
-        bubbleSort = new BubbleSort(bars);
-        listOfLists = bubbleSort.getSteps();
+        Bar[] newBars = new Bar[numberOfBars];
+        newBars = RandomBars.getRandomBars(numberOfBars);
+        choiceBox = new ChoiceBox();
+        choiceBox.getItems().add(new BubbleSort(newBars));
+        choiceBox.getSelectionModel().select(0);
+        sortingAlgorithm = (SortingAlgorithm) choiceBox.getSelectionModel().getSelectedItem();
+        sortingAlgorithm.sort();
+        listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().clear();
-        animationPane.getChildren().addAll(Arrays.asList(bars));
+        animationPane.getChildren().addAll(Arrays.asList(newBars));
     }
 
 

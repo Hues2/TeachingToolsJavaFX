@@ -4,7 +4,6 @@
 ✖ Right now the sorting algorithm controller only uses bubble sort
     Make the choice box allow the user to pick what algorithm they want to see
 
-✖ Implement pause button
 
 ✖ Implement the choice box
 
@@ -14,7 +13,7 @@
     Maybe call the reset method
     Find out how to call the chosen sorting algorithm from the reset menu
 
-✖ Implement reset button
+
 
 
 -------------------------------------------------------------------------------------------------
@@ -25,9 +24,17 @@
 
 ✔ Let user change speed of bubble sort algorithm
 
+✔ Implement pause button
+
 ✔ Implement next button
 
 ✔ Implement previous button
+
+✔ Implement reset button
+
+
+
+
 
 ✖✖✖✖
 ✔✔✔✔
