@@ -194,6 +194,16 @@ public class SortingAnimationController {
 
 
 
+    public void reset(){
+        counter = 0;
+        listOfLists = new ArrayList<>();
+        bars = new Bar[numberOfBars];
+        bars = RandomBars.getRandomBars(numberOfBars);
+        bubbleSort = new BubbleSort(bars);
+        listOfLists = bubbleSort.getSteps();
+        animationPane.getChildren().clear();
+        animationPane.getChildren().addAll(Arrays.asList(bars));
+    }
 
 
 

@@ -49,7 +49,7 @@
                   <Insets left="10.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="resetButton" mnemonicParsing="false" text="New Bars">
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset" text="New Bars">
                <HBox.margin>
                   <Insets left="10.0" right="1.0" top="25.0" />
                </HBox.margin>
