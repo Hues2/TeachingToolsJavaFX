@@ -23,7 +23,7 @@ public class RandomBars {
         return listOfBars;
     }
 
-    private static void setBarDimensions(Bar bar, int n) {
+    public static void setBarDimensions(Bar bar, int n) {
         bar.setWidth(SortingAnimationController.animationPaneWidth / n -
                 SortingAnimationController.gapBetweenBars);
         bar.setHeight(((SortingAnimationController.animationPaneHeight - SortingAnimationController.heightOfHBox)

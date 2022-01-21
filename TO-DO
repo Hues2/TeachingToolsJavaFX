@@ -1,6 +1,7 @@
 ✖ Make the algorithm explanation title change to the selected algorithm from the choice box
 
-
+✖ Right now the sorting algorithm controller only uses bubble sort
+    Make the spinner allow the user to pick what algorithm they want to see
 
 ✖✖✖✖
 ✔✔✔✔
