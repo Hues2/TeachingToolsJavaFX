@@ -121,16 +121,76 @@ public class SortingAnimationController {
     }
 
     public void next(){
-        counter++;
-        for (int i = 0; i < numberOfBars - 1; i++) {
-            listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
-            listOfLists.get(counter)[i].setFill(Color.CRIMSON);
-            RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
+        if (counter < listOfLists.size() - 1){
+            sortButton.setDisable(false);
+            nextButton.setDisable(false);
+            previousButton.setDisable(false);
+            homeButton.setDisable(false);
+            resetButton.setDisable(false);
+            pauseButton.setDisable(true);
+            speedSlider.setDisable(false);
+            choiceBox.setDisable(false);
+
+            counter++;
+
+            if (counter == listOfLists.size() - 1){
+                nextButton.setDisable(true);
+            }
+            for (int i = 0; i < numberOfBars - 1; i++) {
+                listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
+                listOfLists.get(counter)[i].setFill(Color.CRIMSON);
+                RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
+            }
+            animationPane.getChildren().clear();
+            animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+        }else{
+            sortButton.setDisable(false);
+            nextButton.setDisable(false);
+            previousButton.setDisable(true);
+            homeButton.setDisable(false);
+            resetButton.setDisable(false);
+            pauseButton.setDisable(true);
+            speedSlider.setDisable(false);
+            choiceBox.setDisable(false);
         }
-        animationPane.getChildren().clear();
-        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+
     }
 
+
+    public void previous(){
+        if (counter > 0){
+            sortButton.setDisable(false);
+            nextButton.setDisable(false);
+            previousButton.setDisable(false);
+            homeButton.setDisable(false);
+            resetButton.setDisable(false);
+            pauseButton.setDisable(true);
+            speedSlider.setDisable(false);
+            choiceBox.setDisable(false);
+
+            counter--;
+            if(counter == 0){
+                previousButton.setDisable(true);
+            }
+            for (int i = 0; i < numberOfBars - 1; i++) {
+                listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
+                listOfLists.get(counter)[i].setFill(Color.CRIMSON);
+                RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
+            }
+            animationPane.getChildren().clear();
+            animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+        }else{
+            sortButton.setDisable(false);
+            nextButton.setDisable(false);
+            previousButton.setDisable(true);
+            homeButton.setDisable(false);
+            resetButton.setDisable(false);
+            pauseButton.setDisable(true);
+            speedSlider.setDisable(false);
+            choiceBox.setDisable(false);
+        }
+
+    }
 
 
 

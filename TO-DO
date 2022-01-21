@@ -6,19 +6,13 @@
 
 ✖ Implement pause button
 
-
-
 ✖ Implement the choice box
-
-✖ Implement next button
-
-✖ Implement previous button
 
 ✖ Make method that runs when user chooses what algorithm to use
     This will instantiate the chosen algorithm which will sort it
     and then add fill the listOfLists.
 
-
+✖ Implement reset button
 
 
 -------------------------------------------------------------------------------------------------
@@ -29,6 +23,9 @@
 
 ✔ Let user change speed of bubble sort algorithm
 
+✔ Implement next button
+
+✔ Implement previous button
 
 ✖✖✖✖
 ✔✔✔✔
