@@ -1,7 +1,6 @@
-package com.example.teachingtoolsjavafx.home.screen;
+package com.example.teachingtoolsjavafx.controllers;
 
 import com.example.teachingtoolsjavafx.Main;
-import com.example.teachingtoolsjavafx.sorting.algorithms.SortingAnimationController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

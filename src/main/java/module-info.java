@@ -5,8 +5,8 @@ module com.example.teachingtoolsjavafx {
 
     opens com.example.teachingtoolsjavafx to javafx.fxml;
     exports com.example.teachingtoolsjavafx;
-    exports com.example.teachingtoolsjavafx.home.screen;
-    opens com.example.teachingtoolsjavafx.home.screen to javafx.fxml;
     exports com.example.teachingtoolsjavafx.sorting.algorithms;
     opens com.example.teachingtoolsjavafx.sorting.algorithms to javafx.fxml;
+    exports com.example.teachingtoolsjavafx.controllers;
+    opens com.example.teachingtoolsjavafx.controllers to javafx.fxml;
 }

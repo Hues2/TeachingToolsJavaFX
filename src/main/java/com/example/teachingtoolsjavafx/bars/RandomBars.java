@@ -1,6 +1,6 @@
 package com.example.teachingtoolsjavafx.bars;
 
-import com.example.teachingtoolsjavafx.sorting.algorithms.SortingAnimationController;
+import com.example.teachingtoolsjavafx.controllers.SortingAnimationController;
 import javafx.scene.paint.Color;
 
 import java.util.Random;

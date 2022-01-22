@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.sorting.algorithms.SortingAnimationController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
    <children>
       <Pane fx:id="animationPane" prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" prefHeight="17.0" prefWidth="329.0" text="(choseAlgorithm) Algorithm" textAlignment="CENTER" underline="true">
@@ -20,10 +20,11 @@
                   <Insets left="10.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <ChoiceBox fx:id="choiceBox" prefWidth="150.0">
+            <ComboBox fx:id="comboBox" onAction="#reset" prefWidth="150.0">
                <HBox.margin>
                   <Insets left="10.0" top="25.0" />
-               </HBox.margin></ChoiceBox>
+               </HBox.margin>
+            </ComboBox>
             <Slider fx:id="speedSlider" blockIncrement="0.1" max="1.0" min="0.01" showTickLabels="true" showTickMarks="true" value="0.25">
                <HBox.margin>
                   <Insets left="10.0" top="30.0" />

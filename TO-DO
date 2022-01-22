@@ -38,3 +38,114 @@
 
 ✖✖✖✖
 ✔✔✔✔
+
+
+
+
+
+
+
+QUICKSORT IMPLEMENTATION
+
+
+package com.co5201;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Random;
+
+public class QuickSort extends JPanel {
+    private static final long serialVersionUID = 1L;
+    private final int WIDTH = 1000, HEIGHT = WIDTH * 9 /16;
+    private final int SIZE = 250;
+    private final int BAR_WIDTH = WIDTH / SIZE;
+    private int[] bar_height = new int[SIZE];
+    public Random random = new Random();
+    private SwingWorker<Void, Void> shuffler, sorter;
+
+    QuickSort(){
+        setBackground(Color.white);
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        getBarHeights();
+        //sortByQuick();
+    }
+    public void getBarHeights(){
+        for (int i = 0; i < SIZE; i++) {
+            int randomHeight = random.nextInt(HEIGHT);
+            bar_height[i] = randomHeight;
+        }
+    }
+
+    public void sortByQuick(){
+        sorter = new SwingWorker<>(){
+            @Override
+            protected Void doInBackground() throws Exception {
+                quickSort(bar_height, 0, bar_height.length - 1);
+                return null;
+            }
+        };
+        sorter.execute();
+    }
+    private void quickSort(int[] array, int start, int finish) throws InterruptedException {
+        int pivotIndex, k;
+        pivotIndex = (start + finish) / 2;
+        swap(pivotIndex, finish);
+        k = partition( array, start-1, finish, array[finish]);
+        swap(k, finish);
+        if (k - start > 1) quickSort( array, start, k-1);
+        if (finish - k > 1) quickSort( array, k+1, finish);
+    }
+
+    public void shuffle(){
+        shuffler = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws InterruptedException {
+                int middle = SIZE / 2;
+                for (int i = 0, j = middle; i < middle; i++,j++) {
+                    random = new Random();
+                    int random_index = random.nextInt(SIZE);
+                    swap(j, random_index);
+                    Thread.sleep(10);
+                    repaint();
+                }
+                return null;
+            }
+            @Override
+            protected void done() {
+                super.done();
+                sorter.execute();
+            }
+        };
+        shuffler.execute();
+    }
+
+    private  void swap(int indexA, int indexB) throws InterruptedException {
+        int temp = bar_height[indexA];
+        bar_height[indexA] = bar_height[indexB];
+        bar_height[indexB] = temp;
+        Thread.sleep(10);
+        repaint();
+    }
+    private  int partition(int[] array, int le, int ri, int pivot) throws InterruptedException {
+        do
+        {
+            do le++; while (array[le] < pivot);
+            do ri--; while (ri != 0 && array[ri] > pivot);
+            if (le < ri) swap(le, ri);
+        }
+        while (le < ri);
+        return le;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.black);
+        for (int i = 0; i < SIZE; i++) {
+            g.fillRect(i * BAR_WIDTH, 0, BAR_WIDTH, bar_height[i]);
+        }
+
+
+    }
+
+}
