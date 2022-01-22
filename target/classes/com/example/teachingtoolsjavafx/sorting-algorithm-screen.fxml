@@ -6,13 +6,33 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
    <children>
       <Pane fx:id="animationPane" prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c" />
-      <Label fx:id="algorithmLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" prefHeight="17.0" prefWidth="329.0" text="(choseAlgorithm) Algorithm" textAlignment="CENTER" underline="true">
+      <Label fx:id="algorithmLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" layoutY="1.0" prefHeight="51.0" prefWidth="329.0" text="Sorting Algorithm" textAlignment="CENTER" textFill="WHITE" underline="true">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font></Label>
+      <TabPane layoutX="677.0" layoutY="51.0" prefHeight="590.0" prefWidth="323.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tab1" text="Algorithm &amp; Code">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="549.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5">
+                     <children>
+                        <TextArea editable="false" layoutY="3.0" prefHeight="559.0" prefWidth="329.0" text="Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements &quot;bubble&quot; to the top of the list.&#10;&#10;&#10;PSEUDO CODE:&#10;&#10;bubbleSort(A : list of sortable items)&#10;    n := length(A)&#10;    repeat&#10;        swapped := false&#10;        for i := 1 to n-1 inclusive do&#10;            /* if this pair is out of order */&#10;            if A[i-1] &gt; A[i] then&#10;                /* swap them and remember something changed */&#10;                swap(A[i-1], A[i])&#10;                swapped := true&#10;            end if&#10;        end for&#10;    until not swapped&#10;end procedure" wrapText="true">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font></TextArea>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tab2" text="Sorting lists">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
       <HBox fx:id="hboxPanel" layoutY="625.0" prefHeight="75.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c">
          <children>
             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backHome" text="Home">
