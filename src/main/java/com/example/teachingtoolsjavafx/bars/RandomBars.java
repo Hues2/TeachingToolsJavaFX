@@ -17,7 +17,7 @@ public class RandomBars {
             listOfBars[i] = new Bar(1 + randomNumber.nextInt(numberOfBars));
             // A bar is a rectangle, so it has the method .setX and setFill
             listOfBars[i].setX(i * (SortingAnimationController.animationPaneWidth / numberOfBars));
-            listOfBars[i].setFill(Color.CRIMSON);
+            listOfBars[i].setFill(SortingAnimationController.barColour);
             setBarDimensions(listOfBars[i], listOfBars.length);
         }
         return listOfBars;

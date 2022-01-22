@@ -30,14 +30,17 @@ import java.util.Objects;
 public class SortingAnimationController {
     public static final int gapBetweenBars = 10;
     public static int heightOfHBox = 75;
-    public static int numberOfBars = 30;
+    public static int numberOfBars = 20;
     public static int animationPaneWidth = 672;
     public static int animationPaneHeight = 625;
     private Bar[] bars;
     private static int counter = 0;
     private Timeline timeLine;
     private ArrayList<Bar[]> listOfLists;
-
+    private static SortingAlgorithm sortingAlgorithm;
+    private List<SortingAlgorithm> listOfAlgorithms;
+    private int indexOfCombo = 0;
+    public static Color barColour = Color.LIGHTSEAGREEN;
 
 
     @FXML
@@ -62,9 +65,6 @@ public class SortingAnimationController {
     private Label algorithmLabel;
 
 
-    private static SortingAlgorithm sortingAlgorithm;
-    private List<SortingAlgorithm> listOfAlgorithms;
-    private int indexOfCombo = 0;
 
     // This method runs and initialises all the FXML items
     @FXML
@@ -125,22 +125,17 @@ public class SortingAnimationController {
     }
 
 
-    private void setUpTimeLine(){
+    public void setUpTimeLine(){
         timeLine = new Timeline(
                 new KeyFrame(Duration.seconds(speedSlider.getValue()), (ActionEvent event) -> {
-                    for (int i = 0; i < numberOfBars; i++) {
-                        listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
-                        listOfLists.get(counter)[i].setFill(Color.CRIMSON);
-                        RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
-                    }
-                    animationPane.getChildren().clear();
-                    animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+                    setNewPositionsAndRepaint();
                     counter++;
                 })
         );
         timeLine.setCycleCount(listOfLists.size() - counter);
         timeLine.setOnFinished((ActionEvent e) -> {
             // Here the list is finished sorting
+            counter--;
             homeButton.setDisable(false);
             sortButton.setDisable(true);
             pauseButton.setDisable(true);
@@ -180,14 +175,9 @@ public class SortingAnimationController {
 
             if (counter == listOfLists.size() - 1){
                 nextButton.setDisable(true);
+                previousButton.setDisable(false);
             }
-            for (int i = 0; i < numberOfBars; i++) {
-                listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
-                listOfLists.get(counter)[i].setFill(Color.CRIMSON);
-                RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
-            }
-            animationPane.getChildren().clear();
-            animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+            setNewPositionsAndRepaint();
         }else{
             sortButton.setDisable(false);
             nextButton.setDisable(false);
@@ -214,16 +204,8 @@ public class SortingAnimationController {
             comboBox.setDisable(false);
 
             counter--;
-            if(counter == 0){
-                previousButton.setDisable(true);
-            }
-            for (int i = 0; i < numberOfBars; i++) {
-                listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
-                listOfLists.get(counter)[i].setFill(Color.CRIMSON);
-                RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
-            }
-            animationPane.getChildren().clear();
-            animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+
+            setNewPositionsAndRepaint();
         }else{
             sortButton.setDisable(false);
             nextButton.setDisable(false);
@@ -234,29 +216,32 @@ public class SortingAnimationController {
             speedSlider.setDisable(false);
             comboBox.setDisable(false);
         }
-
     }
 
+    private void setNewPositionsAndRepaint(){
+        for (int i = 0; i < numberOfBars; i++) {
+            listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
+            listOfLists.get(counter)[i].setFill(barColour);
+            RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
+        }
+        animationPane.getChildren().clear();
+        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+    }
 
     public void reset(){
         animationPane.getChildren().clear();
         listOfLists = new ArrayList<>();
         counter = 0;
-        Bar[] newBars = new Bar[numberOfBars];
-        newBars = RandomBars.getRandomBars(numberOfBars);
-        for (Bar bar : newBars){
-            System.out.println(bar.getSize());
-        }
+        bars = RandomBars.getRandomBars(numberOfBars);
         indexOfCombo = comboBox.getSelectionModel().getSelectedIndex();
         if (indexOfCombo == 0){
-            sortingAlgorithm = new BubbleSort(newBars);
+            sortingAlgorithm = new BubbleSort(bars);
         }else if (indexOfCombo == 1){
-            sortingAlgorithm = new InsertionSort(newBars);
+            sortingAlgorithm = new InsertionSort(bars);
         }
         sortingAlgorithm.sort();
         listOfLists = sortingAlgorithm.getSteps();
-        System.out.println(sortingAlgorithm);
-        animationPane.getChildren().addAll(Arrays.asList(newBars));
+        animationPane.getChildren().addAll(Arrays.asList(bars));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
 
         newListButtons();

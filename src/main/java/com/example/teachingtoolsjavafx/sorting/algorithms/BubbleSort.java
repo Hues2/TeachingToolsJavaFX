@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class BubbleSort implements SortingAlgorithm {
-    public Bar[] randomBars;
+    private Bar[] randomBars;
     private int currentIndex = 0;
     private int traversingIndex = 1;
     private Bar[] list;
@@ -28,7 +28,7 @@ public class BubbleSort implements SortingAlgorithm {
                 }
                 traversingIndex++;
 
-                // Add the new random bars l;ist to the liist of lists
+                // Add the new random bars l;ist to the list of lists
                 // Even if a bar has not swapped, it will be added, as this is a step in the algorithm that
                 // needs to be displayed
                 list = new Bar[randomBars.length];
