@@ -70,15 +70,7 @@ public class SortingAnimationController {
     @FXML
     private void initialize() {
 
-        homeButton.setDisable(false);
-        comboBox.setDisable(false);
-        speedSlider.setDisable(false);
-        sortButton.setDisable(false);
-        pauseButton.setDisable(true);
-        nextButton.setDisable(false);
-        previousButton.setDisable(true);
-        resetButton.setDisable(false);
-        comboBox.setDisable(false);
+        newListButtons();
 
         bars = new Bar[numberOfBars];
         bars = RandomBars.getRandomBars(numberOfBars);
@@ -149,7 +141,6 @@ public class SortingAnimationController {
         timeLine.setCycleCount(listOfLists.size() - counter);
         timeLine.setOnFinished((ActionEvent e) -> {
             // Here the list is finished sorting
-            counter = 0;
             homeButton.setDisable(false);
             sortButton.setDisable(true);
             pauseButton.setDisable(true);
@@ -268,53 +259,10 @@ public class SortingAnimationController {
         animationPane.getChildren().addAll(Arrays.asList(newBars));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
 
+        newListButtons();
 
-        sortButton.setDisable(false);
-        nextButton.setDisable(false);
-        previousButton.setDisable(true);
-        homeButton.setDisable(false);
-        resetButton.setDisable(false);
-        pauseButton.setDisable(true);
-        speedSlider.setDisable(false);
-        comboBox.setDisable(false);
     }
-
-
-//    public void reset(){
-//        counter = 0;
-//        listOfLists = new ArrayList<>();
-//        Bar[] newBars = new Bar[numberOfBars];
-//        newBars = RandomBars.getRandomBars(numberOfBars);
-//        comboBox.getItems().set(0, new BubbleSort(newBars));
-//        comboBox.getItems().set(1, new InsertionSort(newBars));
-//        comboBox.setConverter(new StringConverter<SortingAlgorithm>() {
-//            @Override
-//            public String toString(SortingAlgorithm sortingAlgorithm) {
-//                if (sortingAlgorithm == null){
-//                    return "";
-//                }else{
-//                    return sortingAlgorithm.getClass().getSimpleName();
-//                }
-//            }
-//            @Override
-//            public SortingAlgorithm fromString(String s) {
-//                return null;
-//            }
-//        });
-//        sortingAlgorithm = (SortingAlgorithm) comboBox.getSelectionModel().getSelectedItem();
-//        sortingAlgorithm.sort();
-//        listOfLists = sortingAlgorithm.getSteps();
-//        animationPane.getChildren().clear();
-//        animationPane.getChildren().addAll(Arrays.asList(bars));
-//        sortButton.setDisable(false);
-//        nextButton.setDisable(false);
-//        previousButton.setDisable(true);
-//        homeButton.setDisable(false);
-//        resetButton.setDisable(false);
-//        pauseButton.setDisable(true);
-//        speedSlider.setDisable(false);
-//        comboBox.setDisable(false);
-//    }
+    
 
 
     // Home button functionality
@@ -327,5 +275,17 @@ public class SortingAnimationController {
         stage.setScene(scene);
         stage.show();
     }
+
+    private void newListButtons(){
+        sortButton.setDisable(false);
+        nextButton.setDisable(false);
+        previousButton.setDisable(true);
+        homeButton.setDisable(false);
+        resetButton.setDisable(false);
+        pauseButton.setDisable(true);
+        speedSlider.setDisable(false);
+        comboBox.setDisable(false);
+    }
+
 
 }
