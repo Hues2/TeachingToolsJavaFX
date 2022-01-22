@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
    <children>
       <Pane fx:id="animationPane" prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" prefHeight="17.0" prefWidth="329.0" text="(choseAlgorithm) Algorithm" textAlignment="CENTER" underline="true">
+      <Label fx:id="algorithmLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" prefHeight="17.0" prefWidth="329.0" text="(choseAlgorithm) Algorithm" textAlignment="CENTER" underline="true">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font></Label>

@@ -14,10 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -61,6 +58,8 @@ public class SortingAnimationController {
     private Button previousButton;
     @FXML
     private Button resetButton;
+    @FXML
+    private Label algorithmLabel;
 
 
     private static SortingAlgorithm sortingAlgorithm;
@@ -105,10 +104,12 @@ public class SortingAnimationController {
                 return null;
             }
         });
+
         sortingAlgorithm = (SortingAlgorithm) comboBox.getSelectionModel().getSelectedItem();
         sortingAlgorithm.sort();
         listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().addAll(Arrays.asList(bars));
+        algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
     }
 
 
@@ -265,7 +266,7 @@ public class SortingAnimationController {
         listOfLists = sortingAlgorithm.getSteps();
         System.out.println(sortingAlgorithm);
         animationPane.getChildren().addAll(Arrays.asList(newBars));
-
+        algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
 
 
         sortButton.setDisable(false);
