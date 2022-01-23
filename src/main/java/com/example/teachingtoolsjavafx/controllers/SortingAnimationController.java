@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +31,7 @@ import java.util.Objects;
 public class SortingAnimationController {
     public static final int gapBetweenBars = 10;
     public static int heightOfHBox = 75;
-    public static int numberOfBars = 20;
+    public static int numberOfBars = 30;
     public static int animationPaneWidth = 672;
     public static int animationPaneHeight = 625;
     private Bar[] bars;
@@ -63,6 +64,8 @@ public class SortingAnimationController {
     private Button resetButton;
     @FXML
     private Label algorithmLabel;
+    @FXML
+    private ComboBox numberOfBarsComboBox;
 
 
 
@@ -79,6 +82,22 @@ public class SortingAnimationController {
         listOfAlgorithms.add(new BubbleSort(bars));
         listOfAlgorithms.add(new InsertionSort(bars));
 
+        // Adds all the possible algorithms to the combo box
+        setUpAlgorithmsComboBox();
+
+        // Adds all the possible options to the number of bars combo box
+        setUpNumberOfBarsComboBox();
+        numberOfBars = (Integer) numberOfBarsComboBox.getSelectionModel().getSelectedItem();
+
+        sortingAlgorithm = (SortingAlgorithm) comboBox.getSelectionModel().getSelectedItem();
+        sortingAlgorithm.sort();
+        listOfLists = sortingAlgorithm.getSteps();
+        animationPane.getChildren().addAll(Arrays.asList(bars));
+        algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
+    }
+
+
+    private void setUpAlgorithmsComboBox(){
         comboBox.setItems(FXCollections.observableArrayList(listOfAlgorithms));
         comboBox.getSelectionModel().select(indexOfCombo);
 
@@ -96,14 +115,15 @@ public class SortingAnimationController {
                 return null;
             }
         });
-
-        sortingAlgorithm = (SortingAlgorithm) comboBox.getSelectionModel().getSelectedItem();
-        sortingAlgorithm.sort();
-        listOfLists = sortingAlgorithm.getSteps();
-        animationPane.getChildren().addAll(Arrays.asList(bars));
-        algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
     }
 
+    private void setUpNumberOfBarsComboBox(){
+        numberOfBarsComboBox.getItems().add(10);
+        numberOfBarsComboBox.getItems().add(30);
+        numberOfBarsComboBox.getItems().add(50);
+        numberOfBarsComboBox.getItems().add(60);
+        numberOfBarsComboBox.getSelectionModel().select(1);
+    }
 
 
 
@@ -119,6 +139,7 @@ public class SortingAnimationController {
         previousButton.setDisable(true);
         resetButton.setDisable(true);
         comboBox.setDisable(true);
+        numberOfBarsComboBox.setDisable(true);
 
         setUpTimeLine();
 
@@ -142,6 +163,8 @@ public class SortingAnimationController {
             resetButton.setDisable(false);
             previousButton.setDisable(false);
             nextButton.setDisable(true);
+            comboBox.setDisable(false);
+            numberOfBarsComboBox.setDisable(false);
         });
         timeLine.play();
     }
@@ -157,6 +180,7 @@ public class SortingAnimationController {
         pauseButton.setDisable(true);
         speedSlider.setDisable(false);
         comboBox.setDisable(false);
+        numberOfBarsComboBox.setDisable(false);
     }
 
     public void next(){
@@ -170,6 +194,7 @@ public class SortingAnimationController {
             pauseButton.setDisable(true);
             speedSlider.setDisable(false);
             comboBox.setDisable(false);
+            numberOfBarsComboBox.setDisable(false);
 
             counter++;
 
@@ -187,6 +212,7 @@ public class SortingAnimationController {
             pauseButton.setDisable(true);
             speedSlider.setDisable(false);
             comboBox.setDisable(false);
+            numberOfBarsComboBox.setDisable(false);
         }
 
     }
@@ -202,6 +228,7 @@ public class SortingAnimationController {
             pauseButton.setDisable(true);
             speedSlider.setDisable(false);
             comboBox.setDisable(false);
+            numberOfBarsComboBox.setDisable(false);
 
             counter--;
 
@@ -215,6 +242,7 @@ public class SortingAnimationController {
             pauseButton.setDisable(true);
             speedSlider.setDisable(false);
             comboBox.setDisable(false);
+            numberOfBarsComboBox.setDisable(false);
         }
     }
 
@@ -232,6 +260,7 @@ public class SortingAnimationController {
         animationPane.getChildren().clear();
         listOfLists = new ArrayList<>();
         counter = 0;
+        numberOfBars = (Integer) numberOfBarsComboBox.getSelectionModel().getSelectedItem();
         bars = RandomBars.getRandomBars(numberOfBars);
         indexOfCombo = comboBox.getSelectionModel().getSelectedIndex();
         if (indexOfCombo == 0){
@@ -270,6 +299,7 @@ public class SortingAnimationController {
         pauseButton.setDisable(true);
         speedSlider.setDisable(false);
         comboBox.setDisable(false);
+        numberOfBarsComboBox.setDisable(false);
     }
 
 
