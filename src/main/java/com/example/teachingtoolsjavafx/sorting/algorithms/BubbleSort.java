@@ -14,12 +14,19 @@ public class BubbleSort implements SortingAlgorithm {
 
 
     public BubbleSort(Bar[] randomBars){
+
         this.randomBars = randomBars;
+        list = new Bar[randomBars.length];
+        for (int i = 0; i < list.length; i++) {
+            list[i] = randomBars[i];
+        }
+        listOfLists.add(list);
     }
 
     @Override
     // This method sorts the list using insertion sort
     public void sort(){
+
         while (currentIndex < randomBars.length) {
             while (traversingIndex < randomBars.length - currentIndex) {
                 if (randomBars[traversingIndex - 1].getSize() >= randomBars[traversingIndex].getSize()) {
@@ -28,7 +35,7 @@ public class BubbleSort implements SortingAlgorithm {
                 }
                 traversingIndex++;
 
-                // Add the new random bars l;ist to the list of lists
+                // Add the new random bars list to the list of lists
                 // Even if a bar has not swapped, it will be added, as this is a step in the algorithm that
                 // needs to be displayed
                 list = new Bar[randomBars.length];

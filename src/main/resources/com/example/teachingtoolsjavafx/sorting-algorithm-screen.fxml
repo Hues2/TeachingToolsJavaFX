@@ -19,7 +19,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="549.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5">
                      <children>
-                        <TextArea fx:id="definitionTextArea" editable="false" layoutY="3.0" prefHeight="559.0" prefWidth="329.0" text="Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements &quot;bubble&quot; to the top of the list.&#10;&#10;&#10;&#10;PSEUDO CODE:&#10;&#10;bubbleSort(A : list of sortable items)&#10;    n := length(A)&#10;    repeat&#10;        swapped := false&#10;        for i := 1 to n-1 inclusive do&#10;            /* if this pair is out of order */&#10;            if A[i-1] &gt; A[i] then&#10;                /* swap them and remember something changed */&#10;                swap(A[i-1], A[i])&#10;                swapped := true&#10;            end if&#10;        end for&#10;    until not swapped&#10;end" wrapText="true">
+                        <TextArea fx:id="tab1TextArea" editable="false" layoutY="3.0" prefHeight="559.0" prefWidth="329.0" text="Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements &quot;bubble&quot; to the top of the list.&#10;&#10;&#10;&#10;PSEUDO CODE:&#10;&#10;bubbleSort(A : list of sortable items)&#10;    n := length(A)&#10;    repeat&#10;        swapped := false&#10;        for i := 1 to n-1 inclusive do&#10;            /* if this pair is out of order */&#10;            if A[i-1] &gt; A[i] then&#10;                /* swap them and remember something changed */&#10;                swap(A[i-1], A[i])&#10;                swapped := true&#10;            end if&#10;        end for&#10;    until not swapped&#10;end" wrapText="true">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font></TextArea>
@@ -28,7 +28,13 @@
           </Tab>
           <Tab fx:id="tab2" text="Sorting lists">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5">
+                     <children>
+                        <TextArea fx:id="tab2TextArea" editable="false" layoutY="2.0" prefHeight="559.0" prefWidth="323.0" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextArea>
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

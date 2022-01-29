@@ -43,6 +43,7 @@ public class SortingAnimationController {
     public static Color barColour = Color.LIGHTSEAGREEN;
 
 
+
     @FXML
     private Pane animationPane;
     @FXML
@@ -66,7 +67,9 @@ public class SortingAnimationController {
     @FXML
     private ComboBox numberOfBarsComboBox;
     @FXML
-    private TextArea definitionTextArea;
+    private TextArea tab1TextArea;
+    @FXML
+    private TextArea tab2TextArea;
 
 
 
@@ -93,9 +96,11 @@ public class SortingAnimationController {
         sortingAlgorithm = (SortingAlgorithm) comboBox.getSelectionModel().getSelectedItem();
         sortingAlgorithm.sort();
         listOfLists = sortingAlgorithm.getSteps();
-        animationPane.getChildren().addAll(Arrays.asList(bars));
+        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
-        definitionTextArea.setText(sortingAlgorithm.definitionText());
+        setUpTab1TextArea();
+        tab2TextArea.appendText(getList());
+
     }
 
 
@@ -127,13 +132,25 @@ public class SortingAnimationController {
         numberOfBarsComboBox.getSelectionModel().select(1);
     }
 
+    private void setUpTab1TextArea(){
+        tab1TextArea.setText(sortingAlgorithm.definitionText());
+    }
 
 
+
+    // This method gets the list to be printed out on the second tab
+    private String getList(){
+        StringBuilder list = new StringBuilder("\n[");
+        for (Bar bar : listOfLists.get(counter)) {
+            list.append(" ").append(bar.getSize()).append(",");
+        }
+        list.append("]\n");
+        return list.toString();
+    }
 
 
     // This method runs when the sort button is clicked
-    public void sortButton() throws InterruptedException {
-        // When the user starts to sort the list, make the home button disabled
+    public void sortButton(){
         homeButton.setDisable(true);
         comboBox.setDisable(true);
         speedSlider.setDisable(true);
@@ -154,6 +171,7 @@ public class SortingAnimationController {
         timeLine = new Timeline(
                 new KeyFrame(Duration.seconds(speedSlider.getValue()), (ActionEvent event) -> {
                     setNewPositionsAndRepaint();
+                    tab2TextArea.appendText(getList());
                     counter++;
                 })
         );
@@ -207,6 +225,7 @@ public class SortingAnimationController {
                 previousButton.setDisable(false);
             }
             setNewPositionsAndRepaint();
+            tab2TextArea.appendText(getList());
         }else{
             sortButton.setDisable(false);
             nextButton.setDisable(false);
@@ -237,6 +256,7 @@ public class SortingAnimationController {
             counter--;
 
             setNewPositionsAndRepaint();
+            tab2TextArea.appendText(getList());
         }else{
             sortButton.setDisable(false);
             nextButton.setDisable(false);
@@ -276,11 +296,15 @@ public class SortingAnimationController {
         }
         sortingAlgorithm.sort();
         listOfLists = sortingAlgorithm.getSteps();
-        animationPane.getChildren().addAll(Arrays.asList(bars));
+        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(0)));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
-        definitionTextArea.clear();
-        definitionTextArea.setText(sortingAlgorithm.definitionText());
 
+        // Change the tabs text areas
+        setUpTab1TextArea();
+        tab2TextArea.clear();
+        tab2TextArea.appendText(getList());
+
+        // Set up the buttons to be disabled or enabled
         newListButtons();
     }
     
@@ -289,7 +313,7 @@ public class SortingAnimationController {
     // Home button functionality
     @FXML
     protected void backHome(ActionEvent event) throws IOException {
-        counter = 0;
+        reset();
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("welcome-screen.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

@@ -14,6 +14,11 @@ public class InsertionSort implements SortingAlgorithm{
 
     public InsertionSort(Bar[] randomBars){
         this.randomBars = randomBars;
+        list = new Bar[randomBars.length];
+        for (int i = 0; i < list.length; i++) {
+            list[i] = randomBars[i];
+        }
+        listOfLists.add(list);
     }
 
 
