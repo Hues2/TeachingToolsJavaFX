@@ -17,9 +17,7 @@ public class BubbleSort implements SortingAlgorithm {
 
         this.randomBars = randomBars;
         list = new Bar[randomBars.length];
-        for (int i = 0; i < list.length; i++) {
-            list[i] = randomBars[i];
-        }
+        System.arraycopy(randomBars, 0, list, 0, list.length);
         listOfLists.add(list);
     }
 
@@ -39,9 +37,7 @@ public class BubbleSort implements SortingAlgorithm {
                 // Even if a bar has not swapped, it will be added, as this is a step in the algorithm that
                 // needs to be displayed
                 list = new Bar[randomBars.length];
-                for (int i = 0; i < list.length; i++) {
-                    list[i] = randomBars[i];
-                }
+                System.arraycopy(randomBars, 0, list, 0, list.length);
                 listOfLists.add(list);
 
             }

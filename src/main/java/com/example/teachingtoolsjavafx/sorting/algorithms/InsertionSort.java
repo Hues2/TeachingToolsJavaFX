@@ -8,16 +8,13 @@ public class InsertionSort implements SortingAlgorithm{
 
     public Bar[] randomBars;
     private int currentIndex = 0;
-    private int traversingIndex = 1;
     private Bar[] list;
     private ArrayList<Bar[]> listOfLists = new ArrayList<>();
 
     public InsertionSort(Bar[] randomBars){
         this.randomBars = randomBars;
         list = new Bar[randomBars.length];
-        for (int i = 0; i < list.length; i++) {
-            list[i] = randomBars[i];
-        }
+        System.arraycopy(randomBars, 0, list, 0, list.length);
         listOfLists.add(list);
     }
 
@@ -25,14 +22,12 @@ public class InsertionSort implements SortingAlgorithm{
     @Override
     public void sort() {
         while (currentIndex < randomBars.length) {
-            traversingIndex = currentIndex;
+            int traversingIndex = currentIndex;
             while (traversingIndex > 0 && randomBars[traversingIndex].getSize() < randomBars[traversingIndex - 1].getSize()) {
                 swap(traversingIndex, traversingIndex - 1);
                 traversingIndex--;
                 list = new Bar[randomBars.length];
-                for (int i = 0; i < list.length; i++) {
-                    list[i] = randomBars[i];
-                }
+                System.arraycopy(randomBars, 0, list, 0, list.length);
                 listOfLists.add(list);
             }
             currentIndex++;

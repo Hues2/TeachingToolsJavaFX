@@ -49,7 +49,7 @@ public class SortingAnimationController {
     @FXML
     private Button homeButton;
     @FXML
-    private ComboBox comboBox;
+    private ComboBox<SortingAlgorithm> comboBox;
     @FXML
     private Slider speedSlider;
     @FXML
@@ -65,7 +65,7 @@ public class SortingAnimationController {
     @FXML
     private Label algorithmLabel;
     @FXML
-    private ComboBox numberOfBarsComboBox;
+    private ComboBox<Integer> numberOfBarsComboBox;
     @FXML
     private TextArea tab1TextArea;
     @FXML
@@ -91,9 +91,9 @@ public class SortingAnimationController {
 
         // Adds all the possible options to the number of bars combo box
         setUpNumberOfBarsComboBox();
-        numberOfBars = (Integer) numberOfBarsComboBox.getSelectionModel().getSelectedItem();
+        numberOfBars = numberOfBarsComboBox.getSelectionModel().getSelectedItem();
 
-        sortingAlgorithm = (SortingAlgorithm) comboBox.getSelectionModel().getSelectedItem();
+        sortingAlgorithm = comboBox.getSelectionModel().getSelectedItem();
         sortingAlgorithm.sort();
         listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
@@ -108,7 +108,7 @@ public class SortingAnimationController {
         comboBox.setItems(FXCollections.observableArrayList(listOfAlgorithms));
         comboBox.getSelectionModel().select(indexOfCombo);
 
-        comboBox.setConverter(new StringConverter<SortingAlgorithm>() {
+        comboBox.setConverter(new StringConverter<>() {
             @Override
             public String toString(SortingAlgorithm sortingAlgorithm) {
                 if (sortingAlgorithm == null){
@@ -140,7 +140,8 @@ public class SortingAnimationController {
 
     // This method gets the list to be printed out on the second tab
     private String getList(){
-        StringBuilder list = new StringBuilder("\n[");
+        StringBuilder list = new StringBuilder("\nStep " + counter + ":");
+        list.append("\n[");
         for (Bar bar : listOfLists.get(counter)) {
             list.append(" ").append(bar.getSize()).append(",");
         }
@@ -286,7 +287,7 @@ public class SortingAnimationController {
         animationPane.getChildren().clear();
         listOfLists = new ArrayList<>();
         counter = 0;
-        numberOfBars = (Integer) numberOfBarsComboBox.getSelectionModel().getSelectedItem();
+        numberOfBars = numberOfBarsComboBox.getSelectionModel().getSelectedItem();
         bars = RandomBars.getRandomBars(numberOfBars);
         indexOfCombo = comboBox.getSelectionModel().getSelectedIndex();
         if (indexOfCombo == 0){
