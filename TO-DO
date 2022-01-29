@@ -1,5 +1,3 @@
-✖ Allow user to change the colour of the bars
-    Maybe with the color picker
 
 ✖ Add shell sort
 
@@ -68,6 +66,8 @@
     Show each step (Make string that says "Step" + counter + ":")
         (then String that prints out the list of bars at index counter)
 
+✔ Allow user to change the colour of the bars
+    Maybe with the color picker
 
 
 ✖✖✖✖

@@ -33,8 +33,15 @@ public class HomeScreenController{
 
     // There is no pathing algorithm implemented yet, so it just changes the name of the button;
     @FXML
-    protected void goToPathingAlgorithms(){
-        pathingAlgorithmsButton.setText("Not Available");
+    protected void goToPathingAlgorithms(ActionEvent event) throws IOException {
+        pathingAlgorithmsButton.setText("Pathing Algorithms");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("pathing-algorithm-screen.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Pathing Algorithms");
+        stage.setResizable(false);
+        stage.show();
     }
 }
 

@@ -259,16 +259,9 @@ public class SortingAnimationController {
 
             setNewPositionsAndRepaint();
             tab2TextArea.appendText(getList());
-        }else{
-            sortButton.setDisable(false);
-            nextButton.setDisable(false);
-            previousButton.setDisable(true);
-            homeButton.setDisable(false);
-            resetButton.setDisable(false);
-            pauseButton.setDisable(true);
-            speedSlider.setDisable(false);
-            comboBox.setDisable(false);
-            numberOfBarsComboBox.setDisable(false);
+        }
+        if (counter == 0){
+            newListButtons();
         }
     }
 
@@ -316,9 +309,9 @@ public class SortingAnimationController {
     // It doesn't change the position of any bar, just the colour
     public void changeColour(){
         barColour = colourPicker.getValue();
-        for (int i = 0; i < listOfLists.size(); i++) {
+        for (Bar[] listOfBars : listOfLists) {
             for (int j = 0; j < numberOfBars; j++) {
-                listOfLists.get(i)[j].setFill(SortingAnimationController.barColour);
+                listOfBars[j].setFill(SortingAnimationController.barColour);
             }
         }
         animationPane.getChildren().clear();
