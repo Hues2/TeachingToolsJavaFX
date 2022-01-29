@@ -8,4 +8,5 @@ public interface SortingAlgorithm {
      void sort();
      void swap(int indexA, int indexB);
      ArrayList<Bar[]> getSteps();
+     String definitionText();
 }

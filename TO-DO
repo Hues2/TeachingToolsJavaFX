@@ -5,8 +5,6 @@
     Show each step (Make string that says "Step" + counter + ":")
         (then String that prints out the list of bars at index counter)
 
-✖ Make text change on tab 1, depending on what algorithm is selected
-    Maybe make a method that sets the text depending on the combo box index
 
 ✖ Refactor code
 
@@ -51,6 +49,9 @@
     algorithm from the choice box
 
 ✔ Allow user to change number of bars
+
+✔ Make text change on tab 1, depending on what algorithm is selected
+    Maybe make a method that sets the text depending on the combo box index
 
 
 

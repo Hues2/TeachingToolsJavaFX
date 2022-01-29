@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -66,6 +65,8 @@ public class SortingAnimationController {
     private Label algorithmLabel;
     @FXML
     private ComboBox numberOfBarsComboBox;
+    @FXML
+    private TextArea definitionTextArea;
 
 
 
@@ -94,6 +95,7 @@ public class SortingAnimationController {
         listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().addAll(Arrays.asList(bars));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
+        definitionTextArea.setText(sortingAlgorithm.definitionText());
     }
 
 
@@ -124,6 +126,8 @@ public class SortingAnimationController {
         numberOfBarsComboBox.getItems().add(60);
         numberOfBarsComboBox.getSelectionModel().select(1);
     }
+
+
 
 
 
@@ -256,6 +260,8 @@ public class SortingAnimationController {
         animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
     }
 
+    // This method is called when the algorithm is changed in the combo box
+    // And also when the New Bars button is clicked
     public void reset(){
         animationPane.getChildren().clear();
         listOfLists = new ArrayList<>();
@@ -272,9 +278,10 @@ public class SortingAnimationController {
         listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().addAll(Arrays.asList(bars));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
+        definitionTextArea.clear();
+        definitionTextArea.setText(sortingAlgorithm.definitionText());
 
         newListButtons();
-
     }
     
 
