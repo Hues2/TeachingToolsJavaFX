@@ -1,18 +1,29 @@
 ✖ Allow user to change the colour of the bars
     Maybe with the color picker
 
-✖ Make tab2 display
-    Show each step (Make string that says "Step" + counter + ":")
-        (then String that prints out the list of bars at index counter)
-
-
-✖ Refactor code
-
 ✖ Add shell sort
 
 ✖ Add quick sort
 
 ✖ Add a 3rd tab that has a useful teaching/learning tool
+
+✖ Refactor code
+
+✖ Create maze, maybe using GridPane
+
+✖ Implement A* algorithm
+
+✖ Link A* algorithm to maze
+
+✖ Visualize A* by changing the colour of the cells
+
+✖
+
+✖
+
+✖
+
+✖
 
 ✖
 
@@ -52,6 +63,10 @@
 
 ✔ Make text change on tab 1, depending on what algorithm is selected
     Maybe make a method that sets the text depending on the combo box index
+
+✔ Make tab2 display
+    Show each step (Make string that says "Step" + counter + ":")
+        (then String that prints out the list of bars at index counter)
 
 
 

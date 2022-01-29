@@ -70,15 +70,16 @@ public class SortingAnimationController {
     private TextArea tab1TextArea;
     @FXML
     private TextArea tab2TextArea;
+    @FXML
+    private ColorPicker colourPicker;
 
 
 
     // This method runs and initialises all the FXML items
     @FXML
     private void initialize() {
-
+        barColour = colourPicker.getValue();
         newListButtons();
-
         bars = new Bar[numberOfBars];
         bars = RandomBars.getRandomBars(numberOfBars);
 
@@ -287,6 +288,7 @@ public class SortingAnimationController {
         animationPane.getChildren().clear();
         listOfLists = new ArrayList<>();
         counter = 0;
+        barColour = colourPicker.getValue();
         numberOfBars = numberOfBarsComboBox.getSelectionModel().getSelectedItem();
         bars = RandomBars.getRandomBars(numberOfBars);
         indexOfCombo = comboBox.getSelectionModel().getSelectedIndex();
@@ -308,7 +310,20 @@ public class SortingAnimationController {
         // Set up the buttons to be disabled or enabled
         newListButtons();
     }
-    
+
+
+    // This method changes the colour of the bars
+    // It doesn't change the position of any bar, just the colour
+    public void changeColour(){
+        barColour = colourPicker.getValue();
+        for (int i = 0; i < listOfLists.size(); i++) {
+            for (int j = 0; j < numberOfBars; j++) {
+                listOfLists.get(i)[j].setFill(SortingAnimationController.barColour);
+            }
+        }
+        animationPane.getChildren().clear();
+        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(0)));
+    }
 
 
     // Home button functionality
@@ -333,6 +348,4 @@ public class SortingAnimationController {
         comboBox.setDisable(false);
         numberOfBarsComboBox.setDisable(false);
     }
-
-
 }
