@@ -21,24 +21,14 @@
             <version>15.0.1</version>
             <classifier>win</classifier>
         </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>15.0.1</version>
-            <classifier>mac</classifier>
-        </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>15.0.1</version>
             <classifier>win</classifier>
         </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>15.0.1</version>
-            <classifier>mac</classifier>
-        </dependency>
+
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -47,13 +37,7 @@
             <classifier>win</classifier>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <classifier>mac</classifier>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -61,13 +45,7 @@
             <classifier>win</classifier>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <classifier>mac</classifier>
-            <scope>test</scope>
-        </dependency>
+
     </dependencies>
 
     <build>
