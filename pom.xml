@@ -28,7 +28,7 @@
             <version>17.0.2</version>
             <classifier>win</classifier>
         </dependency>
-        
+
 
     </dependencies>
 

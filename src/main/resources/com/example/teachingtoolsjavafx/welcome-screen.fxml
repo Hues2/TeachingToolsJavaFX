@@ -24,7 +24,7 @@
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="pathingAlgorithmsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToPathingAlgorithms" text="Pating Algorithms">
+                  <Button fx:id="pathingAlgorithmsButton" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#goToPathingAlgorithms" text="Pating Algorithms">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
