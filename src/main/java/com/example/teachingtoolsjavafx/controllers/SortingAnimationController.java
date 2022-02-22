@@ -197,6 +197,31 @@ public class SortingAnimationController {
     }
 
 
+
+    private void setNewPositionsAndRepaint(){
+        for (int i = 0; i < numberOfBars; i++) {
+            listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
+            listOfLists.get(counter)[i].setFill(barColour);
+            RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
+        }
+
+
+        // Get the difference between the current list of bars vs the previous (would not work for the previous button)
+        for (int i = 0; i < numberOfBars; i++) {
+            if (counter > 0){
+                if (listOfLists.get(counter)[i] != listOfLists.get(counter - 1)[i]){
+                    listOfLists.get(counter)[i].setFill(Color.GREEN);
+                }
+            }
+        }
+
+
+
+        animationPane.getChildren().clear();
+        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+    }
+
+
     public void pause(){
         timeLine.stop();
         enableAllExceptPauseButton();
@@ -240,16 +265,6 @@ public class SortingAnimationController {
         if (counter == 0){
             newListButtons();
         }
-    }
-
-    private void setNewPositionsAndRepaint(){
-        for (int i = 0; i < numberOfBars; i++) {
-            listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));
-            listOfLists.get(counter)[i].setFill(barColour);
-            RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
-        }
-        animationPane.getChildren().clear();
-        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
     }
 
 
