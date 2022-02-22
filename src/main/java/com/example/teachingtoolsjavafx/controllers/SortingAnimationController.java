@@ -42,7 +42,7 @@ public class SortingAnimationController {
     private int indexOfCombo = 0;
     public static Color barColour = Color.LIGHTSEAGREEN;
 
-    
+
     @FXML
     private Pane animationPane;
     @FXML
@@ -94,10 +94,9 @@ public class SortingAnimationController {
         numberOfBars = numberOfBarsComboBox.getSelectionModel().getSelectedItem();
 
         sortingAlgorithm = comboBox.getSelectionModel().getSelectedItem();
-        sortingAlgorithm.sort();
-        listOfLists = sortingAlgorithm.getSteps();
-        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
-        algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
+
+        // This method calls the sort method of the algorithm, displays the bars at index 'counter' and sets the text.
+        sortAndDisplay();
         setUpTab1TextArea();
         tab2TextArea.appendText(getList());
 
@@ -124,6 +123,7 @@ public class SortingAnimationController {
         });
     }
 
+    // Possibilities of number of bars
     private void setUpNumberOfBarsComboBox(){
         numberOfBarsComboBox.getItems().add(10);
         numberOfBarsComboBox.getItems().add(30);
@@ -164,19 +164,23 @@ public class SortingAnimationController {
         numberOfBarsComboBox.setDisable(true);
 
         setUpTimeLine();
-
     }
 
 
     public void setUpTimeLine(){
         timeLine = new Timeline(
                 new KeyFrame(Duration.seconds(speedSlider.getValue()), (ActionEvent event) -> {
+                    // When timeline.stop() is called in the pause button action
+                    // it pauses this action event
                     setNewPositionsAndRepaint();
                     tab2TextArea.appendText(getList());
                     counter++;
                 })
         );
+
+        // The timeline action event will run the same amount of times as steps of the algorithm are left
         timeLine.setCycleCount(listOfLists.size() - counter);
+        // It will only be finished when it has reached the max cycle count
         timeLine.setOnFinished((ActionEvent e) -> {
             // Here the list is finished sorting
             counter--;
@@ -248,8 +252,10 @@ public class SortingAnimationController {
         animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
     }
 
-    // This method is called when the algorithm is changed in the combo box
-    // And also when the New Bars button is clicked
+
+    // This method is called when the algorithm is changed in the combo box,
+    // when the New Bars button is clicked,
+    // and when the back home button is clicked
     public void reset(){
         animationPane.getChildren().clear();
         listOfLists = new ArrayList<>();
@@ -263,11 +269,9 @@ public class SortingAnimationController {
         }else if (indexOfCombo == 1){
             sortingAlgorithm = new InsertionSort(bars);
         }
-        sortingAlgorithm.sort();
-        listOfLists = sortingAlgorithm.getSteps();
-        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(0)));
-        algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
 
+        sortAndDisplay();
+        
         // Change the tabs text areas
         setUpTab1TextArea();
         tab2TextArea.clear();
@@ -276,6 +280,7 @@ public class SortingAnimationController {
         // Set up the buttons to be disabled or enabled
         newListButtons();
     }
+
 
 
     // This method changes the colour of the bars
@@ -301,6 +306,14 @@ public class SortingAnimationController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+
+    private void sortAndDisplay(){
+        sortingAlgorithm.sort();
+        listOfLists = sortingAlgorithm.getSteps();
+        animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
+        algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
     }
 
 
