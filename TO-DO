@@ -5,19 +5,21 @@
 
 ✖ Add a 3rd tab that has a useful teaching/learning tool
 
-✖ Refactor code
-
 ✖ Track how much time it takes for the sorting algorithm to finish
 
 ✖ Create README
 
-✖ Make bars that have swapped different colours
+✖ Bars that have swapped different colours
     Maybe track the differences between both arrays and change the colours of the bars that have
     swapped positions in the list
 
-✖
+✖ Add a notepad for each algorithm
+    When user runs the app, the text saved to file will be loaded
 
-✖
+✖ Highlight pseudocode that is currently running
+    As it doesn't use the specific pseudocode, I will have to try to relate
+    my code to the pseudocode and highlight the corresponding lines of code
+    at specific times
 
 -------------------------------------------------------------------------------------------------
 

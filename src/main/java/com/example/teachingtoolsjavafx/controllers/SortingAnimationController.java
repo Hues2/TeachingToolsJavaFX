@@ -253,9 +253,11 @@ public class SortingAnimationController {
     }
 
 
-    // This method is called when the algorithm is changed in the combo box,
-    // when the New Bars button is clicked,
-    // and when the back home button is clicked
+    /*
+     This method is called when the algorithm is changed in the combo box,
+     when the New Bars button is clicked,
+     and when the back home button is clicked
+     */
     public void reset(){
         animationPane.getChildren().clear();
         listOfLists = new ArrayList<>();
@@ -271,7 +273,7 @@ public class SortingAnimationController {
         }
 
         sortAndDisplay();
-        
+
         // Change the tabs text areas
         setUpTab1TextArea();
         tab2TextArea.clear();
@@ -341,5 +343,4 @@ public class SortingAnimationController {
         comboBox.setDisable(false);
         numberOfBarsComboBox.setDisable(false);
     }
-
 }
