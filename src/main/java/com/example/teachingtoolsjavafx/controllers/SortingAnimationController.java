@@ -42,8 +42,7 @@ public class SortingAnimationController {
     private int indexOfCombo = 0;
     public static Color barColour = Color.LIGHTSEAGREEN;
 
-
-
+    
     @FXML
     private Pane animationPane;
     @FXML
@@ -196,29 +195,12 @@ public class SortingAnimationController {
 
     public void pause(){
         timeLine.stop();
-        sortButton.setDisable(false);
-        nextButton.setDisable(false);
-        previousButton.setDisable(false);
-        homeButton.setDisable(false);
-        resetButton.setDisable(false);
-        pauseButton.setDisable(true);
-        speedSlider.setDisable(false);
-        comboBox.setDisable(false);
-        numberOfBarsComboBox.setDisable(false);
+        enableAllExceptPauseButton();
     }
 
     public void next(){
-
         if (counter < listOfLists.size() - 1){
-            sortButton.setDisable(false);
-            nextButton.setDisable(false);
-            previousButton.setDisable(false);
-            homeButton.setDisable(false);
-            resetButton.setDisable(false);
-            pauseButton.setDisable(true);
-            speedSlider.setDisable(false);
-            comboBox.setDisable(false);
-            numberOfBarsComboBox.setDisable(false);
+            enableAllExceptPauseButton();
 
             counter++;
 
@@ -239,21 +221,12 @@ public class SortingAnimationController {
             comboBox.setDisable(false);
             numberOfBarsComboBox.setDisable(false);
         }
-
     }
 
 
     public void previous(){
         if (counter > 0){
-            sortButton.setDisable(false);
-            nextButton.setDisable(false);
-            previousButton.setDisable(false);
-            homeButton.setDisable(false);
-            resetButton.setDisable(false);
-            pauseButton.setDisable(true);
-            speedSlider.setDisable(false);
-            comboBox.setDisable(false);
-            numberOfBarsComboBox.setDisable(false);
+            enableAllExceptPauseButton();
 
             counter--;
 
@@ -330,6 +303,8 @@ public class SortingAnimationController {
         stage.show();
     }
 
+
+    // Enables and disables buttons for specific situations
     private void newListButtons(){
         sortButton.setDisable(false);
         nextButton.setDisable(false);
@@ -341,4 +316,17 @@ public class SortingAnimationController {
         comboBox.setDisable(false);
         numberOfBarsComboBox.setDisable(false);
     }
+
+    private void enableAllExceptPauseButton(){
+        sortButton.setDisable(false);
+        nextButton.setDisable(false);
+        previousButton.setDisable(false);
+        homeButton.setDisable(false);
+        resetButton.setDisable(false);
+        pauseButton.setDisable(true);
+        speedSlider.setDisable(false);
+        comboBox.setDisable(false);
+        numberOfBarsComboBox.setDisable(false);
+    }
+
 }

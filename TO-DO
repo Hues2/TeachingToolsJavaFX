@@ -9,9 +9,11 @@
 
 ✖ Track how much time it takes for the sorting algorithm to finish
 
-✖
+✖ Create README
 
-✖
+✖ Make bars that have swapped different colours
+    Maybe track the differences between both arrays and change the colours of the bars that have
+    swapped positions in the list
 
 ✖
 
