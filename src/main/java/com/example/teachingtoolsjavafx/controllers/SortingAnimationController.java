@@ -209,12 +209,11 @@ public class SortingAnimationController {
         // Get the difference between the current list of bars vs the previous (would not work for the previous button)
         for (int i = 0; i < numberOfBars; i++) {
             if (counter > 0){
-                if (listOfLists.get(counter)[i] != listOfLists.get(counter - 1)[i]){
+                if (listOfLists.get(counter)[i] != listOfLists.get(counter + 1)[i]){
                     listOfLists.get(counter)[i].setFill(Color.GREEN);
                 }
             }
         }
-
 
 
         animationPane.getChildren().clear();

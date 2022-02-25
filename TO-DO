@@ -3,23 +3,29 @@
 
 ✖ Add quick sort
 
-✖ Add a 3rd tab that has a useful teaching/learning tool
-
 ✖ Track how much time it takes for the sorting algorithm to finish
 
 ✖ Create README
 
-✖ Bars that have swapped different colours
-    Maybe track the differences between both arrays and change the colours of the bars that have
-    swapped positions in the list
-
 ✖ Add a notepad for each algorithm
     When user runs the app, the text saved to file will be loaded
 
-✖ Highlight pseudocode that is currently running
-    As it doesn't use the specific pseudocode, I will have to try to relate
-    my code to the pseudocode and highlight the corresponding lines of code
-    at specific times
+✖ Ask user a question
+    Use current list of lists, pick a random step (list from listOfLists) and ask user what the next list will look like
+
+✖ Create text using plain english to explain what happens at eac step
+    It will do the same as the number list display but explaining the process
+    Implement it in the same place as the list display
+    Use string builder again
+
+✖ Make a pop up box appear asking the user a multiple choice question
+    Maybe add a checkbox to see if the user wants the algorithm to pause at a random moment to ask the question
+
+✖ Add .ignore file so that I can develop on mac
+
+✖ Add a mac version and a windows version to the project zipped file
+
+✖ Get users to test my tool compared to another tool, ad get results
 
 ✖
 
@@ -73,6 +79,9 @@
 ✔ Allow user to change the colour of the bars
     Maybe with the color picker
 
+✔ Bars that have swapped different colours
+    Maybe track the differences between both arrays and change the colours of the bars that have
+    swapped positions in the list
 
 ✖✖✖✖
 ✔✔✔✔
