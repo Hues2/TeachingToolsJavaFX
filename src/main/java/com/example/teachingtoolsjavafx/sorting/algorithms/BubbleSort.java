@@ -14,7 +14,6 @@ public class BubbleSort implements SortingAlgorithm {
 
 
     public BubbleSort(Bar[] randomBars){
-
         this.randomBars = randomBars;
         list = new Bar[randomBars.length];
         System.arraycopy(randomBars, 0, list, 0, list.length);
@@ -82,6 +81,4 @@ public class BubbleSort implements SortingAlgorithm {
                 "    until not swapped\n" +
                 "end";
     }
-
-
 }

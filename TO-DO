@@ -13,6 +13,9 @@
 ✖ Ask user a question
     Use current list of lists, pick a random step (list from listOfLists) and ask user what the next list will look like
 
+✖ Create separate classes and extract functionality (REFACTOR)
+    For example the String builder, just create a class that takes in the list of lists
+
 ✖ Create text using plain english to explain what happens at eac step
     It will do the same as the number list display but explaining the process
     Implement it in the same place as the list display
