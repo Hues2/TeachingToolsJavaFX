@@ -1,6 +1,7 @@
 package com.example.teachingtoolsjavafx.sorting.algorithms;
 
 import com.example.teachingtoolsjavafx.bars.Bar;
+import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,11 @@ public class QuickSort implements SortingAlgorithm{
 
     @Override
     public String definitionText() {
+        return null;
+    }
+
+    @Override
+    public ThirdTabController thirdTabController() {
         return null;
     }
 }

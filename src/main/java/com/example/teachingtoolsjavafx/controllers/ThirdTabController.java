@@ -7,17 +7,25 @@ import java.util.ArrayList;
 // This class handles the logic for the 3rd tab
 public class ThirdTabController {
 
-    public ArrayList<Integer> bars = new ArrayList<>();
-    public boolean swapped = false;
-    public int indexOfSwappedNumber;
+    private StringBuilder stringBuilder = new StringBuilder();
+    private ArrayList<StringBuilder> stepExplanations = new ArrayList<>();
 
-    public String stepExplanation() {
-        StringBuilder list;
-        if (swapped){
-            list = new StringBuilder("\n" + bars.get(0) + " is swapped with " + bars.get(1) + "\n");
-        }else{
-            list = new StringBuilder("\n" + bars.get(0) + " is NOT swapped with " + bars.get(1) + "\n");
+
+    public void setSwappedStringBuilder(int firstNum, int secondNum){
+        this.stringBuilder = new StringBuilder("\n" + firstNum + " will swap with " + secondNum + "\n");
+        stepExplanations.add(this.stringBuilder);
+    }
+
+    public void setNotSwappedStringBuilder(int firstNum, int secondNum){
+        this.stringBuilder = new StringBuilder("\n" + firstNum + " will NOT swap with " + secondNum + "\n");
+        stepExplanations.add(this.stringBuilder);
+    }
+
+
+    public String getExplanation(int index){
+        if (index == stepExplanations.size()){
+            return null;
         }
-        return list.toString();
+        return stepExplanations.get(index).toString();
     }
 }

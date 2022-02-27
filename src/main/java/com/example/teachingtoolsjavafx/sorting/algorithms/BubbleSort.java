@@ -1,6 +1,9 @@
 package com.example.teachingtoolsjavafx.sorting.algorithms;
 
 import com.example.teachingtoolsjavafx.bars.Bar;
+import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
+
+
 import java.util.ArrayList;
 
 
@@ -10,6 +13,8 @@ public class BubbleSort implements SortingAlgorithm {
     private int traversingIndex = 1;
     private Bar[] list;
     private ArrayList<Bar[]> listOfLists = new ArrayList<>();
+    private ThirdTabController thirdTabController = new ThirdTabController();
+
 
 
 
@@ -29,6 +34,11 @@ public class BubbleSort implements SortingAlgorithm {
                 if (randomBars[traversingIndex - 1].getSize() >= randomBars[traversingIndex].getSize()) {
                     // The previous bar is bigger, so the swap function is called:
                     swap(traversingIndex - 1, traversingIndex);
+                    thirdTabController.setSwappedStringBuilder(randomBars[traversingIndex].getSize(), randomBars[traversingIndex - 1].getSize());
+                }else{
+                    // Here it didn't swap the numbers
+                    thirdTabController.setNotSwappedStringBuilder(randomBars[traversingIndex - 1].getSize(), randomBars[traversingIndex].getSize());
+
                 }
                 traversingIndex++;
 
@@ -80,5 +90,10 @@ public class BubbleSort implements SortingAlgorithm {
                 "        end for\n" +
                 "    until not swapped\n" +
                 "end";
+    }
+
+    @Override
+    public ThirdTabController thirdTabController() {
+        return this.thirdTabController;
     }
 }

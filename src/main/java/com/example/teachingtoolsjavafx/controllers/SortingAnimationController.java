@@ -42,7 +42,7 @@ public class SortingAnimationController {
     private int indexOfCombo = 0;
     public static Color barColour = Color.LIGHTSEAGREEN;
     private SecondTabController secondTabController;
-    private ThirdTabController thirdTabController = new ThirdTabController();
+    private ThirdTabController thirdTabController;
 
 
     @FXML
@@ -103,7 +103,9 @@ public class SortingAnimationController {
         sortAndDisplay();
         setUpTab1TextArea();
         secondTabController = new SecondTabController(listOfLists);
+        thirdTabController = sortingAlgorithm.thirdTabController();
         tab2TextArea.appendText(secondTabController.getList(counter));
+        tab3TextArea.appendText(thirdTabController.getExplanation(counter));
 
     }
 
@@ -168,7 +170,10 @@ public class SortingAnimationController {
                     setNewPositionsAndRepaint();
 
                     tab2TextArea.appendText(secondTabController.getList(counter));
-                    //tab3TextArea.appendText(thirdTabController.stepExplanation());
+                    if (thirdTabController.getExplanation(counter) != null){
+                        tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+                    }
+
 
                     counter++;
                 })
@@ -201,11 +206,9 @@ public class SortingAnimationController {
             RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
         }
 
-        thirdTabController.bars.clear();
-        thirdTabController.swapped = false;
         // Get the difference between the current list of bars vs the next one
         for (int i = 0; i < numberOfBars; i++) {
-            if (counter > 0){
+            if (counter > 0 && counter != listOfLists.size() - 1){
                 if (listOfLists.get(counter)[i] != listOfLists.get(counter + 1)[i]){
                     listOfLists.get(counter)[i].setFill(Color.GREEN);
                 }
@@ -234,7 +237,11 @@ public class SortingAnimationController {
             }
             setNewPositionsAndRepaint();
             tab2TextArea.appendText(secondTabController.getList(counter));
-            //tab3TextArea.appendText(thirdTabController.stepExplanation());
+            if (thirdTabController.getExplanation(counter) != null){
+                tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+            }
+
+
 
         }else{
             sortButton.setDisable(false);
@@ -258,7 +265,7 @@ public class SortingAnimationController {
 
             setNewPositionsAndRepaint();
             tab2TextArea.appendText(secondTabController.getList(counter));
-            //tab3TextArea.appendText(thirdTabController.stepExplanation());
+            tab3TextArea.appendText(thirdTabController.getExplanation(counter));
 
         }
         if (counter == 0){
@@ -289,9 +296,15 @@ public class SortingAnimationController {
         sortAndDisplay();
         // Change the tabs text areas
         secondTabController = new SecondTabController(listOfLists);
+        thirdTabController = sortingAlgorithm.thirdTabController();
+
         setUpTab1TextArea();
+
         tab2TextArea.clear();
         tab2TextArea.appendText(secondTabController.getList(counter));
+
+        tab3TextArea.clear();
+        tab3TextArea.appendText(thirdTabController.getExplanation(counter));
 
         // Set up the buttons to be disabled or enabled
         newListButtons();
