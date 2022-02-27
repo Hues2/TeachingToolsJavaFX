@@ -12,12 +12,23 @@ public class ThirdTabController {
 
 
     public void setSwappedStringBuilder(int firstNum, int secondNum){
-        this.stringBuilder = new StringBuilder("\n" + firstNum + " will swap with " + secondNum + "\n");
+        if (firstNum == secondNum){
+            this.stringBuilder = new StringBuilder("\nThe current bar has the value of " + firstNum + ", which is equal to the compared bar, so " +
+                    "the default method is to swap them anyway.\n");
+        }else if (firstNum < secondNum){
+            this.stringBuilder = new StringBuilder("\nThe current bar value is " + firstNum + " and the value of the bar that it is comparing it to is " +
+                    + secondNum + ". As it is smaller, the bars will swap.\n");
+        }else{
+            this.stringBuilder = new StringBuilder("\nThe current bar value is " + firstNum + " and the value of the bar that it is comparing it to is " +
+                    + secondNum + ". As it is bigger, the bars will swap.\n");
+        }
+
         stepExplanations.add(this.stringBuilder);
     }
 
     public void setNotSwappedStringBuilder(int firstNum, int secondNum){
-        this.stringBuilder = new StringBuilder("\n" + firstNum + " will NOT swap with " + secondNum + "\n");
+        this.stringBuilder = new StringBuilder("\nThe current bar value is " + firstNum + " and the value of the bar that it is comparing it to is " +
+                + secondNum + ". As it is smaller, the bars will NOT swap.\n");
         stepExplanations.add(this.stringBuilder);
     }
 

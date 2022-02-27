@@ -28,6 +28,7 @@ public class InsertionSort implements SortingAlgorithm{
             int traversingIndex = currentIndex;
             while (traversingIndex > 0 && randomBars[traversingIndex].getSize() < randomBars[traversingIndex - 1].getSize()) {
                 swap(traversingIndex, traversingIndex - 1);
+                thirdTabController.setSwappedStringBuilder(randomBars[traversingIndex - 1].getSize(), randomBars[traversingIndex].getSize());
                 traversingIndex--;
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
@@ -42,6 +43,7 @@ public class InsertionSort implements SortingAlgorithm{
         Bar tempBar = randomBars[indexA];
         randomBars[indexA] = randomBars[indexB];
         randomBars[indexB] = tempBar;
+
     }
 
     @Override
