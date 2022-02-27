@@ -42,6 +42,7 @@ public class SortingAnimationController {
     private int indexOfCombo = 0;
     public static Color barColour = Color.LIGHTSEAGREEN;
     private SecondTabController secondTabController;
+    private ThirdTabController thirdTabController = new ThirdTabController();
 
 
     @FXML
@@ -70,6 +71,8 @@ public class SortingAnimationController {
     private TextArea tab1TextArea;
     @FXML
     private TextArea tab2TextArea;
+    @FXML
+    private TextArea tab3TextArea;
     @FXML
     private ColorPicker colourPicker;
 
@@ -165,6 +168,8 @@ public class SortingAnimationController {
                     setNewPositionsAndRepaint();
 
                     tab2TextArea.appendText(secondTabController.getList(counter));
+                    //tab3TextArea.appendText(thirdTabController.stepExplanation());
+
                     counter++;
                 })
         );
@@ -196,7 +201,9 @@ public class SortingAnimationController {
             RandomBars.setBarDimensions(listOfLists.get(counter)[i], bars.length);
         }
 
-        // Get the difference between the current list of bars vs the previous (would not work for the previous button)
+        thirdTabController.bars.clear();
+        thirdTabController.swapped = false;
+        // Get the difference between the current list of bars vs the next one
         for (int i = 0; i < numberOfBars; i++) {
             if (counter > 0){
                 if (listOfLists.get(counter)[i] != listOfLists.get(counter + 1)[i]){
@@ -227,6 +234,8 @@ public class SortingAnimationController {
             }
             setNewPositionsAndRepaint();
             tab2TextArea.appendText(secondTabController.getList(counter));
+            //tab3TextArea.appendText(thirdTabController.stepExplanation());
+
         }else{
             sortButton.setDisable(false);
             nextButton.setDisable(false);
@@ -249,6 +258,8 @@ public class SortingAnimationController {
 
             setNewPositionsAndRepaint();
             tab2TextArea.appendText(secondTabController.getList(counter));
+            //tab3TextArea.appendText(thirdTabController.stepExplanation());
+
         }
         if (counter == 0){
             newListButtons();

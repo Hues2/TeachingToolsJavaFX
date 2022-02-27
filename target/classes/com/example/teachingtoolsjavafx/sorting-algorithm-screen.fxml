@@ -38,6 +38,17 @@
                      </children></AnchorPane>
             </content>
           </Tab>
+           <Tab fx:id="tab3" text="Process">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5">
+                    <children>
+                       <TextArea fx:id="tab3TextArea" editable="false" layoutY="2.0" prefHeight="559.0" prefWidth="323.0" wrapText="true">
+                          <font>
+                             <Font name="System Bold" size="12.0" />
+                          </font></TextArea>
+                    </children></AnchorPane>
+              </content>
+           </Tab>
         </tabs>
       </TabPane>
       <HBox fx:id="hboxPanel" layoutY="640.0" prefHeight="20.0" prefWidth="947.0" style="-fx-background-color: #1c1c1c">

@@ -20,6 +20,8 @@
     It will do the same as the number list display but explaining the process
     Implement it in the same place as the list display
     Use string builder again
+    Always pass in both numbers even if they are highlighted or not
+    When they are highlighted, make the boolean in the third tab class as true
 
 ✖ Make a pop up box appear asking the user a multiple choice question
     Maybe add a checkbox to see if the user wants the algorithm to pause at a random moment to ask the question
@@ -30,7 +32,7 @@
 
 ✖ Get users to test my tool compared to another tool, ad get results
 
-✖
+✖ Add language spinner choice, that changes the tab text language
 
 ✖
 

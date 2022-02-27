@@ -3,9 +3,10 @@ package com.example.teachingtoolsjavafx.controllers;
 import com.example.teachingtoolsjavafx.bars.Bar;
 import java.util.ArrayList;
 
+// This class handles the logic for the 2nd tab
 public class SecondTabController {
 
-    private ArrayList<Bar[]> listOfLists;
+    private final ArrayList<Bar[]> listOfLists;
 
     SecondTabController(ArrayList<Bar[]> listOfLists){
         this.listOfLists = listOfLists;
