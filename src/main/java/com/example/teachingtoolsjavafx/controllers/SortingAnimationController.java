@@ -200,6 +200,7 @@ public class SortingAnimationController {
 
 
 
+    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     private void setNewPositionsAndRepaint(){
         for (int i = 0; i < numberOfBars; i++) {
             listOfLists.get(counter)[i].setX(i * (animationPaneWidth / numberOfBars));

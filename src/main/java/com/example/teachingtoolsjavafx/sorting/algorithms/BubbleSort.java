@@ -49,25 +49,26 @@ public class BubbleSort extends SortingAlgorithm {
 
     @Override
     public String definitionText(){
-        return "Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements \"bubble\" to the top of the list.\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "PSEUDO CODE:\n" +
-                "\n" +
-                "bubbleSort(A : list of sortable items)\n" +
-                "    n := length(A)\n" +
-                "    repeat\n" +
-                "        swapped := false\n" +
-                "        for i := 1 to n-1 inclusive do\n" +
-                "            /* if this pair is out of order */\n" +
-                "            if A[i-1] > A[i] then\n" +
-                "                /* swap them and remember something changed */\n" +
-                "                swap(A[i-1], A[i])\n" +
-                "                swapped := true\n" +
-                "            end if\n" +
-                "        end for\n" +
-                "    until not swapped\n" +
-                "end";
+        return """
+                Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.
+
+
+
+                PSEUDO CODE:
+
+                bubbleSort(A : list of sortable items)
+                    n := length(A)
+                    repeat
+                        swapped := false
+                        for i := 1 to n-1 inclusive do
+                            /* if this pair is out of order */
+                            if A[i-1] > A[i] then
+                                /* swap them and remember something changed */
+                                swap(A[i-1], A[i])
+                                swapped := true
+                            end if
+                        end for
+                    until not swapped
+                end""";
     }
 }

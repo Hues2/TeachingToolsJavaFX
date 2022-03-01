@@ -4,7 +4,7 @@ import javafx.scene.shape.Rectangle;
 
 public class Bar extends Rectangle {
 
-    private int size;
+    private final int size;
 
     Bar(int barSize){
         this.size = barSize;
