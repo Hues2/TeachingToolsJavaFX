@@ -6,11 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(Main.class.getResource("welcome-screen.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("welcome-screen.fxml")));
         Scene scene = new Scene(root, 550, 350);
         stage.setTitle("Teaching Tools");
         stage.setResizable(false);
