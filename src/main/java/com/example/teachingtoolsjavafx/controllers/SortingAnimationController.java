@@ -76,13 +76,17 @@ public class SortingAnimationController {
     @FXML
     private ColorPicker colourPicker;
 
+    private ButtonController buttonController;
+
 
 
     // This method runs and initialises all the FXML items
     @FXML
     private void initialize() {
+        buttonController = new ButtonController(homeButton, comboBox, speedSlider, sortButton,
+                pauseButton, nextButton, previousButton, resetButton, numberOfBarsComboBox);
         barColour = colourPicker.getValue();
-        newListButtons();
+        buttonController.newListButtons();
         bars = new Bar[numberOfBars];
         bars = RandomBars.getRandomBars(numberOfBars);
 
@@ -222,12 +226,12 @@ public class SortingAnimationController {
 
     public void pause(){
         timeLine.stop();
-        enableAllExceptPauseButton();
+        buttonController.enableAllExceptPauseButton();
     }
 
     public void next(){
         if (counter < listOfLists.size() - 1){
-            enableAllExceptPauseButton();
+            buttonController.enableAllExceptPauseButton();
 
             counter++;
 
@@ -259,7 +263,7 @@ public class SortingAnimationController {
 
     public void previous(){
         if (counter > 0){
-            enableAllExceptPauseButton();
+            buttonController.enableAllExceptPauseButton();
 
             counter--;
 
@@ -269,7 +273,7 @@ public class SortingAnimationController {
 
         }
         if (counter == 0){
-            newListButtons();
+            buttonController.newListButtons();
         }
     }
 
@@ -307,9 +311,8 @@ public class SortingAnimationController {
         tab3TextArea.appendText(thirdTabController.getExplanation(counter));
 
         // Set up the buttons to be disabled or enabled
-        newListButtons();
+        buttonController.newListButtons();
     }
-
 
 
     // This method changes the colour of the bars
@@ -343,31 +346,5 @@ public class SortingAnimationController {
         listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
-    }
-
-
-    // Enables and disables buttons for specific situations
-    private void newListButtons(){
-        sortButton.setDisable(false);
-        nextButton.setDisable(false);
-        previousButton.setDisable(true);
-        homeButton.setDisable(false);
-        resetButton.setDisable(false);
-        pauseButton.setDisable(true);
-        speedSlider.setDisable(false);
-        comboBox.setDisable(false);
-        numberOfBarsComboBox.setDisable(false);
-    }
-
-    private void enableAllExceptPauseButton(){
-        sortButton.setDisable(false);
-        nextButton.setDisable(false);
-        previousButton.setDisable(false);
-        homeButton.setDisable(false);
-        resetButton.setDisable(false);
-        pauseButton.setDisable(true);
-        speedSlider.setDisable(false);
-        comboBox.setDisable(false);
-        numberOfBarsComboBox.setDisable(false);
     }
 }

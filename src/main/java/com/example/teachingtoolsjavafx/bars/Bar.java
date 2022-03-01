@@ -6,8 +6,8 @@ public class Bar extends Rectangle {
 
     private int size;
 
-    Bar(int x){
-        this.size = x;
+    Bar(int barSize){
+        this.size = barSize;
     }
 
     public int getSize(){
