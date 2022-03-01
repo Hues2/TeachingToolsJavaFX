@@ -7,13 +7,13 @@ import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
 import java.util.ArrayList;
 
 
-public class BubbleSort implements SortingAlgorithm {
+public class BubbleSort extends SortingAlgorithm {
     private Bar[] randomBars;
     private int currentIndex = 0;
     private int traversingIndex = 1;
     private Bar[] list;
     private ArrayList<Bar[]> listOfLists = new ArrayList<>();
-    private ThirdTabController thirdTabController = new ThirdTabController();
+    private AlgorithmTimer timer = new AlgorithmTimer();
 
 
 
@@ -28,6 +28,7 @@ public class BubbleSort implements SortingAlgorithm {
     @Override
     // This method sorts the list using bubble sort
     public void sort(){
+        timer.startTime = System.nanoTime();
 
         while (currentIndex < randomBars.length) {
             while (traversingIndex < randomBars.length - currentIndex) {
@@ -53,6 +54,9 @@ public class BubbleSort implements SortingAlgorithm {
             traversingIndex = 1;
             currentIndex++;
         }
+        double end = System.nanoTime();
+        timer.endTime = System.nanoTime();
+        System.out.println(timer.getTotalTimeInMS());
     }
 
     @Override
@@ -90,10 +94,5 @@ public class BubbleSort implements SortingAlgorithm {
                 "        end for\n" +
                 "    until not swapped\n" +
                 "end";
-    }
-
-    @Override
-    public ThirdTabController thirdTabController() {
-        return this.thirdTabController;
     }
 }

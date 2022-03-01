@@ -6,13 +6,12 @@ import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
 import java.util.ArrayList;
 
 
-public class InsertionSort implements SortingAlgorithm{
+public class InsertionSort extends SortingAlgorithm{
 
     public Bar[] randomBars;
     private int currentIndex = 0;
     private Bar[] list;
     private ArrayList<Bar[]> listOfLists = new ArrayList<>();
-    private ThirdTabController thirdTabController = new ThirdTabController();
 
     public InsertionSort(Bar[] randomBars){
         this.randomBars = randomBars;
@@ -70,8 +69,4 @@ public class InsertionSort implements SortingAlgorithm{
                 "end while";
     }
 
-    @Override
-    public ThirdTabController thirdTabController() {
-        return this.thirdTabController;
-    }
 }

@@ -104,7 +104,7 @@ public class SortingAnimationController {
         sortAndDisplay();
         setUpTab1TextArea();
         secondTabController = new SecondTabController(listOfLists);
-        thirdTabController = sortingAlgorithm.thirdTabController();
+        thirdTabController = sortingAlgorithm.thirdTabController;
         tab2TextArea.appendText(secondTabController.getList(counter));
         tab3TextArea.appendText(thirdTabController.getExplanation(counter));
     }
@@ -296,7 +296,7 @@ public class SortingAnimationController {
         sortAndDisplay();
         // Change the tabs text areas
         secondTabController = new SecondTabController(listOfLists);
-        thirdTabController = sortingAlgorithm.thirdTabController();
+        thirdTabController = sortingAlgorithm.thirdTabController;
 
         setUpTab1TextArea();
 

@@ -5,10 +5,11 @@ import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
 
 import java.util.ArrayList;
 
-public interface SortingAlgorithm {
-     void sort();
-     void swap(int indexA, int indexB);
-     ArrayList<Bar[]> getSteps();
-     String definitionText();
-     ThirdTabController thirdTabController();
+public abstract class SortingAlgorithm {
+     public abstract void sort();
+     abstract void swap(int indexA, int indexB);
+     public abstract ArrayList<Bar[]> getSteps();
+     public abstract String definitionText();
+     public ThirdTabController thirdTabController = new ThirdTabController();
+
 }
