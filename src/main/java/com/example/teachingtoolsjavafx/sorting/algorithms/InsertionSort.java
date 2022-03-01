@@ -5,7 +5,7 @@ import com.example.teachingtoolsjavafx.bars.Bar;
 public class InsertionSort extends SortingAlgorithm{
 
     private int currentIndex = 0;
-    private Bar[] list;
+    //private Bar[] list;
 
     public InsertionSort(Bar[] randomBars){
         this.randomBars = randomBars;
@@ -32,11 +32,6 @@ public class InsertionSort extends SortingAlgorithm{
         }
         timer.endTime = System.nanoTime();
     }
-
-//    @Override
-//    public String getTotalTime() {
-//        return timer.getTotalTimeInMS();
-//    }
 
     @Override
     public String definitionText() {

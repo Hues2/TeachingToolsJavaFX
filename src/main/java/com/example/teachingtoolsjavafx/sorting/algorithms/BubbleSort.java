@@ -5,7 +5,7 @@ import com.example.teachingtoolsjavafx.bars.Bar;
 public class BubbleSort extends SortingAlgorithm {
     private int currentIndex = 0;
     private int traversingIndex = 1;
-    private Bar[] list;
+    //private Bar[] list;
 
 
     public BubbleSort(Bar[] randomBars){
@@ -46,10 +46,6 @@ public class BubbleSort extends SortingAlgorithm {
         timer.endTime = System.nanoTime();
     }
 
-//    @Override
-//    public String getTotalTime() {
-//        return timer.getTotalTimeInMS();
-//    }
 
     @Override
     public String definitionText(){

@@ -9,4 +9,5 @@ module com.example.teachingtoolsjavafx {
     opens com.example.teachingtoolsjavafx.sorting.algorithms to javafx.fxml;
     exports com.example.teachingtoolsjavafx.controllers;
     opens com.example.teachingtoolsjavafx.controllers to javafx.fxml;
+    exports com.example.teachingtoolsjavafx.bars to javafx.fxml;
 }

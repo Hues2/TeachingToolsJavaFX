@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public abstract class SortingAlgorithm {
      public Bar[] randomBars;
      public ArrayList<Bar[]> listOfLists = new ArrayList<>();
+     public Bar[] list;
+
      public abstract void sort();
      public void swap(int indexA, int indexB){
           Bar tempBar = randomBars[indexA];
