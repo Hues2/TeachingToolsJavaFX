@@ -23,15 +23,8 @@ public abstract class SortingAlgorithm {
      public abstract String definitionText();
      public ThirdTabController thirdTabController = new ThirdTabController();
 
-     private AlgorithmTimer timer = new AlgorithmTimer();
-     public void setTimerStart(double startTime){
-          timer.startTime = startTime;
-     }
-     public void setTimerEnd(double endTime){
-          timer.startTime = endTime;
-     }
+     public AlgorithmTimer timer = new AlgorithmTimer();
      public String getTotalTime(){
           return timer.getTotalTimeInMS();
      }
-
 }

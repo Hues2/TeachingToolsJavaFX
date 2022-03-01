@@ -1,8 +1,6 @@
 package com.example.teachingtoolsjavafx.sorting.algorithms;
 
 import com.example.teachingtoolsjavafx.bars.Bar;
-import java.util.ArrayList;
-
 
 public class InsertionSort extends SortingAlgorithm{
 
@@ -19,6 +17,7 @@ public class InsertionSort extends SortingAlgorithm{
 
     @Override
     public void sort() {
+        timer.startTime = System.nanoTime();
         while (currentIndex < randomBars.length) {
             int traversingIndex = currentIndex;
             while (traversingIndex > 0 && randomBars[traversingIndex].getSize() < randomBars[traversingIndex - 1].getSize()) {
@@ -31,7 +30,13 @@ public class InsertionSort extends SortingAlgorithm{
             }
             currentIndex++;
         }
+        timer.endTime = System.nanoTime();
     }
+
+//    @Override
+//    public String getTotalTime() {
+//        return timer.getTotalTimeInMS();
+//    }
 
     @Override
     public String definitionText() {

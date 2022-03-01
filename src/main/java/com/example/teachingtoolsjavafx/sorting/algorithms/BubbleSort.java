@@ -6,8 +6,7 @@ public class BubbleSort extends SortingAlgorithm {
     private int currentIndex = 0;
     private int traversingIndex = 1;
     private Bar[] list;
-    private AlgorithmTimer timer = new AlgorithmTimer();
-    
+
 
     public BubbleSort(Bar[] randomBars){
         this.randomBars = randomBars;
@@ -19,7 +18,7 @@ public class BubbleSort extends SortingAlgorithm {
     @Override
     // This method sorts the list using bubble sort
     public void sort(){
-        setTimerStart(System.nanoTime());
+        timer.startTime = System.nanoTime();
         while (currentIndex < randomBars.length) {
             while (traversingIndex < randomBars.length - currentIndex) {
                 if (randomBars[traversingIndex - 1].getSize() >= randomBars[traversingIndex].getSize()) {
@@ -44,9 +43,13 @@ public class BubbleSort extends SortingAlgorithm {
             traversingIndex = 1;
             currentIndex++;
         }
-        setTimerEnd(System.nanoTime());
+        timer.endTime = System.nanoTime();
     }
 
+//    @Override
+//    public String getTotalTime() {
+//        return timer.getTotalTimeInMS();
+//    }
 
     @Override
     public String definitionText(){
