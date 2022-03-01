@@ -5,7 +5,6 @@ import com.example.teachingtoolsjavafx.bars.Bar;
 public class InsertionSort extends SortingAlgorithm{
 
     private int currentIndex = 0;
-    //private Bar[] list;
 
     public InsertionSort(Bar[] randomBars){
         this.randomBars = randomBars;
@@ -52,5 +51,4 @@ public class InsertionSort extends SortingAlgorithm{
                     i ← i + 1
                 end while""";
     }
-
 }

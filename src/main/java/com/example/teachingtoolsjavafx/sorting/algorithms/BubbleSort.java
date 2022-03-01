@@ -5,7 +5,6 @@ import com.example.teachingtoolsjavafx.bars.Bar;
 public class BubbleSort extends SortingAlgorithm {
     private int currentIndex = 0;
     private int traversingIndex = 1;
-    //private Bar[] list;
 
 
     public BubbleSort(Bar[] randomBars){
