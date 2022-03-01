@@ -1,22 +1,13 @@
 package com.example.teachingtoolsjavafx.sorting.algorithms;
 
 import com.example.teachingtoolsjavafx.bars.Bar;
-import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
-
-
-import java.util.ArrayList;
-
 
 public class BubbleSort extends SortingAlgorithm {
-    private Bar[] randomBars;
     private int currentIndex = 0;
     private int traversingIndex = 1;
     private Bar[] list;
-    private ArrayList<Bar[]> listOfLists = new ArrayList<>();
     private AlgorithmTimer timer = new AlgorithmTimer();
-
-
-
+    
 
     public BubbleSort(Bar[] randomBars){
         this.randomBars = randomBars;
@@ -28,8 +19,7 @@ public class BubbleSort extends SortingAlgorithm {
     @Override
     // This method sorts the list using bubble sort
     public void sort(){
-        timer.startTime = System.nanoTime();
-
+        setTimerStart(System.nanoTime());
         while (currentIndex < randomBars.length) {
             while (traversingIndex < randomBars.length - currentIndex) {
                 if (randomBars[traversingIndex - 1].getSize() >= randomBars[traversingIndex].getSize()) {
@@ -54,23 +44,9 @@ public class BubbleSort extends SortingAlgorithm {
             traversingIndex = 1;
             currentIndex++;
         }
-        double end = System.nanoTime();
-        timer.endTime = System.nanoTime();
-        System.out.println(timer.getTotalTimeInMS());
+        setTimerEnd(System.nanoTime());
     }
 
-    @Override
-    public void swap(int indexA, int indexB){
-        Bar tempBar = randomBars[indexA];
-        randomBars[indexA] = randomBars[indexB];
-        randomBars[indexB] = tempBar;
-    }
-
-
-    @Override
-    public ArrayList<Bar[]> getSteps(){
-        return listOfLists;
-    }
 
     @Override
     public String definitionText(){

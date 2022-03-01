@@ -107,6 +107,7 @@ public class SortingAnimationController {
         thirdTabController = sortingAlgorithm.thirdTabController;
         tab2TextArea.appendText(secondTabController.getList(counter));
         tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+
     }
 
 
@@ -339,6 +340,7 @@ public class SortingAnimationController {
 
     private void sortAndDisplay(){
         sortingAlgorithm.sort();
+        System.out.println(sortingAlgorithm.getTotalTime());
         listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());

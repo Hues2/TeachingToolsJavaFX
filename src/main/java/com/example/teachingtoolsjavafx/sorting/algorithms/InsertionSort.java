@@ -1,17 +1,13 @@
 package com.example.teachingtoolsjavafx.sorting.algorithms;
 
 import com.example.teachingtoolsjavafx.bars.Bar;
-import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
-
 import java.util.ArrayList;
 
 
 public class InsertionSort extends SortingAlgorithm{
 
-    public Bar[] randomBars;
     private int currentIndex = 0;
     private Bar[] list;
-    private ArrayList<Bar[]> listOfLists = new ArrayList<>();
 
     public InsertionSort(Bar[] randomBars){
         this.randomBars = randomBars;
@@ -35,19 +31,6 @@ public class InsertionSort extends SortingAlgorithm{
             }
             currentIndex++;
         }
-    }
-
-    @Override
-    public void swap(int indexA, int indexB) {
-        Bar tempBar = randomBars[indexA];
-        randomBars[indexA] = randomBars[indexB];
-        randomBars[indexB] = tempBar;
-
-    }
-
-    @Override
-    public ArrayList<Bar[]> getSteps() {
-        return listOfLists;
     }
 
     @Override
