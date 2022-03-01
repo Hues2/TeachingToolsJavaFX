@@ -17,7 +17,7 @@ public class InsertionSort extends SortingAlgorithm{
 
     @Override
     public void sort() {
-        timer.startTime = System.nanoTime();
+        timer.setStart(System.nanoTime());
         while (currentIndex < randomBars.length) {
             int traversingIndex = currentIndex;
             while (traversingIndex > 0 && randomBars[traversingIndex].getSize() < randomBars[traversingIndex - 1].getSize()) {
@@ -30,7 +30,7 @@ public class InsertionSort extends SortingAlgorithm{
             }
             currentIndex++;
         }
-        timer.endTime = System.nanoTime();
+        timer.setEndTime(System.nanoTime());
     }
 
     @Override

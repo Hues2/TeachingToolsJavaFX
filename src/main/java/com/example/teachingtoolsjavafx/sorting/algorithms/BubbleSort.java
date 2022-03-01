@@ -18,7 +18,7 @@ public class BubbleSort extends SortingAlgorithm {
     @Override
     // This method sorts the list using bubble sort
     public void sort(){
-        timer.startTime = System.nanoTime();
+        timer.setStart(System.nanoTime());
         while (currentIndex < randomBars.length) {
             while (traversingIndex < randomBars.length - currentIndex) {
                 if (randomBars[traversingIndex - 1].getSize() >= randomBars[traversingIndex].getSize()) {
@@ -43,7 +43,7 @@ public class BubbleSort extends SortingAlgorithm {
             traversingIndex = 1;
             currentIndex++;
         }
-        timer.endTime = System.nanoTime();
+        timer.setEndTime(System.nanoTime());
     }
 
 
