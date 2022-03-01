@@ -21,10 +21,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 
 public class SortingAnimationController {
@@ -43,6 +40,8 @@ public class SortingAnimationController {
     public static Color barColour = Color.LIGHTSEAGREEN;
     private SecondTabController secondTabController;
     private ThirdTabController thirdTabController;
+    private ButtonController buttonController;
+
 
 
     @FXML
@@ -76,8 +75,6 @@ public class SortingAnimationController {
     @FXML
     private ColorPicker colourPicker;
 
-    private ButtonController buttonController;
-
 
 
     // This method runs and initialises all the FXML items
@@ -110,7 +107,6 @@ public class SortingAnimationController {
         thirdTabController = sortingAlgorithm.thirdTabController();
         tab2TextArea.appendText(secondTabController.getList(counter));
         tab3TextArea.appendText(thirdTabController.getExplanation(counter));
-
     }
 
 

@@ -26,7 +26,7 @@ public class BubbleSort implements SortingAlgorithm {
     }
 
     @Override
-    // This method sorts the list using insertion sort
+    // This method sorts the list using bubble sort
     public void sort(){
 
         while (currentIndex < randomBars.length) {
