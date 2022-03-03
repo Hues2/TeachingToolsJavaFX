@@ -3,8 +3,6 @@
 
 ✖ Add quick sort
 
-✖ Track how much time it takes for the sorting algorithm to finish
-
 ✖ Create README
 
 ✖ Add a notepad for each algorithm
@@ -88,7 +86,7 @@
       Implement it in the same place as the list display
       Use string builder again
 
-✔
+✔ Track how much time it takes for the sorting algorithm to finish
 
 ✔
 
