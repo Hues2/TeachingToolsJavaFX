@@ -175,7 +175,6 @@ public class SortingAnimationController {
                         tab3TextArea.appendText(thirdTabController.getExplanation(counter));
                     }
 
-
                     counter++;
                 })
         );
