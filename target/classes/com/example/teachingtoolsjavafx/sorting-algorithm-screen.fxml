@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
    <children>
       <Pane fx:id="animationPane" prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c" />
       <Label fx:id="algorithmLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" layoutY="1.0" prefHeight="51.0" prefWidth="329.0" text="Sorting Algorithm" textAlignment="CENTER" textFill="WHITE" underline="true">
@@ -55,7 +55,7 @@
          <children>
             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backHome" text="Home">
                <HBox.margin>
-                  <Insets left="10.0" top="25.0" />
+                  <Insets left="75.0" top="25.0" />
                </HBox.margin>
             </Button>
             <ComboBox fx:id="comboBox" onAction="#reset" prefWidth="115.0">
@@ -100,7 +100,7 @@
             </Button>
             <ColorPicker fx:id="colourPicker" onAction="#changeColour" promptText="Choose Colour">
                <HBox.margin>
-                  <Insets left="5.0" top="25.0" />
+                  <Insets left="5.0" right="75.0" top="25.0" />
                </HBox.margin>
                <value>
                   <Color red="0.2353801131248474" green="0.6052631735801697" blue="0.9078947305679321" />
