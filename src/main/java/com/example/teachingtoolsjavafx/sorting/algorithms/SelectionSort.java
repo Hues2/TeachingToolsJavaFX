@@ -15,6 +15,7 @@ public class SelectionSort extends SortingAlgorithm{
 
     @Override
     public void sort() {
+        timer.setStart(System.nanoTime());
         while (currentIndex < randomBars.length - 1){
             traversingIndex = currentIndex + 1;
             int min = currentIndex;
@@ -33,6 +34,7 @@ public class SelectionSort extends SortingAlgorithm{
             }
             currentIndex++;
         }
+        timer.setEndTime(System.nanoTime());
     }
 
     @Override
