@@ -6,23 +6,23 @@ import javafx.scene.control.*;
 
 public class ButtonController {
     @FXML
-    private Button homeButton;
+    private final Button homeButton;
     @FXML
-    private ComboBox<SortingAlgorithm> comboBox;
+    private final ComboBox<SortingAlgorithm> comboBox;
     @FXML
-    private Slider speedSlider;
+    private final Slider speedSlider;
     @FXML
-    private Button sortButton;
+    private final Button sortButton;
     @FXML
-    private Button pauseButton;
+    private final Button pauseButton;
     @FXML
-    private Button nextButton;
+    private final Button nextButton;
     @FXML
-    private Button previousButton;
+    private final Button previousButton;
     @FXML
-    private Button resetButton;
+    private final Button resetButton;
     @FXML
-    private ComboBox<Integer> numberOfBarsComboBox;
+    private final ComboBox<Integer> numberOfBarsComboBox;
 
     public ButtonController(Button homeButton, ComboBox<SortingAlgorithm> comboBox, Slider speedSlider, Button sortButton, Button pauseButton, Button nextButton, Button previousButton, Button resetButton, ComboBox<Integer> numberOfBarsComboBox) {
         this.homeButton = homeButton;
