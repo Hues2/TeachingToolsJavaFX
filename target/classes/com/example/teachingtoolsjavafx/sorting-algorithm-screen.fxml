@@ -7,51 +7,40 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c"
-            xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teachingtoolsjavafx.controllers.SortingAnimationController">
    <cursor>
-      <Cursor fx:constant="CLOSED_HAND"/>
+      <Cursor fx:constant="CLOSED_HAND" />
    </cursor>
-   <Pane fx:id="animationPane" prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c"/>
-   <Label fx:id="algorithmLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" layoutY="1.0"
-          prefHeight="51.0" prefWidth="329.0" text="Sorting Algorithm" textAlignment="CENTER" textFill="WHITE"
-          underline="true">
+   <Pane fx:id="animationPane" prefHeight="625.0" prefWidth="672.0" style="-fx-background-color: #1c1c1c" />
+   <Label fx:id="algorithmLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" layoutY="1.0" prefHeight="51.0" prefWidth="329.0" text="Sorting Algorithm" textAlignment="CENTER" textFill="WHITE" underline="true">
       <font>
-         <Font name="System Bold Italic" size="24.0"/>
+         <Font name="System Bold Italic" size="24.0" />
       </font>
    </Label>
    <TabPane layoutX="677.0" layoutY="51.0" prefHeight="590.0" prefWidth="323.0" tabClosingPolicy="UNAVAILABLE">
       <Tab text="Algorithm &amp; Code">
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="549.0" prefWidth="329.0"
-                     style="-fx-background-color: #f5f5f5">
-            <TextArea fx:id="tab1TextArea" editable="false" layoutY="3.0" prefHeight="559.0" prefWidth="329.0"
-                      text="Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements &quot;bubble&quot; to the top of the list.&#10;&#10;&#10;&#10;PSEUDO CODE:&#10;&#10;bubbleSort(A : list of sortable items)&#10;    n := length(A)&#10;    repeat&#10;        swapped := false&#10;        for i := 1 to n-1 inclusive do&#10;            /* if this pair is out of order */&#10;            if A[i-1] &gt; A[i] then&#10;                /* swap them and remember something changed */&#10;                swap(A[i-1], A[i])&#10;                swapped := true&#10;            end if&#10;        end for&#10;    until not swapped&#10;end"
-                      wrapText="true">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="549.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5">
+            <TextArea fx:id="tab1TextArea" editable="false" layoutY="3.0" prefHeight="559.0" prefWidth="329.0" text="Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements &quot;bubble&quot; to the top of the list.&#10;&#10;&#10;&#10;PSEUDO CODE:&#10;&#10;bubbleSort(A : list of sortable items)&#10;    n := length(A)&#10;    repeat&#10;        swapped := false&#10;        for i := 1 to n-1 inclusive do&#10;            /* if this pair is out of order */&#10;            if A[i-1] &gt; A[i] then&#10;                /* swap them and remember something changed */&#10;                swap(A[i-1], A[i])&#10;                swapped := true&#10;            end if&#10;        end for&#10;    until not swapped&#10;end" wrapText="true">
                <font>
-                  <Font name="Calibri" size="18.0"/>
+                  <Font name="Calibri" size="18.0" />
                </font>
             </TextArea>
          </AnchorPane>
       </Tab>
       <Tab text="Sorting lists">
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0"
-                     style="-fx-background-color: #f5f5f5">
-            <TextArea fx:id="tab2TextArea" editable="false" layoutY="2.0" prefHeight="559.0" prefWidth="323.0"
-                      wrapText="true">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5">
+            <TextArea fx:id="tab2TextArea" editable="false" layoutY="2.0" prefHeight="559.0" prefWidth="323.0" wrapText="true">
                <font>
-                  <Font name="System Bold" size="12.0"/>
+                  <Font name="System Bold" size="12.0" />
                </font>
             </TextArea>
          </AnchorPane>
       </Tab>
       <Tab text="Process">
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0"
-                     style="-fx-background-color: #f5f5f5">
-            <TextArea fx:id="tab3TextArea" editable="false" layoutY="2.0" prefHeight="559.0" prefWidth="323.0"
-                      wrapText="true">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="329.0" style="-fx-background-color: #f5f5f5">
+            <TextArea fx:id="tab3TextArea" editable="false" layoutY="2.0" prefHeight="559.0" prefWidth="323.0" wrapText="true">
                <font>
-                  <Font name="System Bold" size="12.0"/>
+                  <Font name="System Bold" size="12.0" />
                </font>
             </TextArea>
          </AnchorPane>
@@ -60,57 +49,57 @@
    <HBox layoutY="640.0" prefHeight="20.0" prefWidth="947.0" style="-fx-background-color: #1c1c1c">
       <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backHome" text="Home">
          <HBox.margin>
-            <Insets left="75.0" top="25.0"/>
+            <Insets left="75.0" top="25.0" />
          </HBox.margin>
       </Button>
       <ComboBox fx:id="comboBox" onAction="#reset" prefWidth="115.0">
          <HBox.margin>
-            <Insets left="10.0" top="25.0"/>
+            <Insets left="10.0" top="25.0" />
          </HBox.margin>
       </ComboBox>
-      <Slider fx:id="speedSlider" blockIncrement="0.1" max="1.0" min="0.01" prefWidth="100.0" showTickLabels="true"
-              showTickMarks="true" value="0.25">
+      <Slider fx:id="speedSlider" blockIncrement="0.1" max="1.0" min="0.01" prefWidth="100.0" showTickLabels="true" showTickMarks="true" value="0.25">
          <HBox.margin>
-            <Insets left="10.0" top="30.0"/>
+            <Insets left="10.0" top="30.0" />
          </HBox.margin>
       </Slider>
       <Button fx:id="sortButton" mnemonicParsing="false" onAction="#sortButton" text="Sort">
          <HBox.margin>
-            <Insets left="10.0" top="25.0"/>
+            <Insets left="10.0" top="25.0" />
          </HBox.margin>
       </Button>
       <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pause" text="Pause">
          <HBox.margin>
-            <Insets left="10.0" top="25.0"/>
+            <Insets left="10.0" top="25.0" />
          </HBox.margin>
       </Button>
       <Button fx:id="nextButton" mnemonicParsing="false" onAction="#next" text="Next">
          <HBox.margin>
-            <Insets left="10.0" top="25.0"/>
+            <Insets left="10.0" top="25.0" />
          </HBox.margin>
       </Button>
       <Button fx:id="previousButton" mnemonicParsing="false" onAction="#previous" text="Previous">
          <HBox.margin>
-            <Insets left="10.0" top="25.0"/>
+            <Insets left="10.0" top="25.0" />
          </HBox.margin>
       </Button>
       <ComboBox fx:id="numberOfBarsComboBox" onAction="#reset" prefWidth="65.0">
          <HBox.margin>
-            <Insets left="10.0" top="25.0"/>
+            <Insets left="10.0" top="25.0" />
          </HBox.margin>
       </ComboBox>
       <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset" text="New Bars">
          <HBox.margin>
-            <Insets left="10.0" right="1.0" top="25.0"/>
+            <Insets left="10.0" right="1.0" top="25.0" />
          </HBox.margin>
       </Button>
       <ColorPicker fx:id="colourPicker" onAction="#changeColour" promptText="Choose Colour">
          <HBox.margin>
-            <Insets left="5.0" right="75.0" top="25.0"/>
+            <Insets left="5.0" right="75.0" top="25.0" />
          </HBox.margin>
          <value>
-            <Color red="0.2353801131248474" green="0.6052631735801697" blue="0.9078947305679321"/>
+            <Color red="0.2353801131248474" green="0.6052631735801697" blue="0.9078947305679321" />
          </value>
       </ColorPicker>
    </HBox>
+   <Label fx:id="timerLabel" graphicTextGap="3.0" layoutX="877.0" layoutY="666.0" prefHeight="25.0" prefWidth="115.0" text="Timer" textAlignment="CENTER" textFill="#f8f8f8" />
 </AnchorPane>

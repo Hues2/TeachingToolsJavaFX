@@ -75,6 +75,8 @@ public class SortingAnimationController {
     private TextArea tab3TextArea;
     @FXML
     private ColorPicker colourPicker;
+    @FXML
+    private Label timerLabel;
 
 
 
@@ -344,7 +346,7 @@ public class SortingAnimationController {
 
     private void sortAndDisplay(){
         sortingAlgorithm.sort();
-        System.out.println(sortingAlgorithm.getTotalTime());
+        timerLabel.setText("Sorted in: " + sortingAlgorithm.getTotalTime());
         listOfLists = sortingAlgorithm.getSteps();
         animationPane.getChildren().addAll(Arrays.asList(listOfLists.get(counter)));
         algorithmLabel.setText(sortingAlgorithm.getClass().getSimpleName());
