@@ -14,10 +14,11 @@ and a side panel with the algorithm description, pseudocode, and explanations of
 To run the program, simply open the project in the IDE, open the Maven tab on the top right, and click reload all projects to resolve the dependencies:
 <br>
 
-<img src="./src/main/resources/MavenReload.png" align="left" alt="Teaching Tool Logo" width="750" height="350"/>
-&nbsp;
+<p align="left">
+<img src="./src/main/resources/MavenReload.png" alt="Teaching Tool Logo" width="750" height="350"/>
+</p>
 
-<hr/>
+<hr>
 
 ## Key Features
 * Visualisation
