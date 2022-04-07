@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 // This class handles the logic for the 2nd tab
 public class SecondTabController {
-
     private final ArrayList<Bar[]> listOfLists;
 
     SecondTabController(ArrayList<Bar[]> listOfLists){
