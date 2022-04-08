@@ -6,7 +6,7 @@ import java.util.Random;
 public class RandomBars {
 
     // The numberOfBars will be determined by the spinner
-    // For now it is default to 30
+    // The default number is 30
     public static Bar[] getRandomBars(int numberOfBars){
         Bar[] listOfBars = new Bar[numberOfBars];
         Random randomNumber = new Random();

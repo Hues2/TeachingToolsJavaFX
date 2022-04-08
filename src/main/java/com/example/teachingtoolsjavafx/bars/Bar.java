@@ -14,5 +14,4 @@ public class Bar extends Rectangle {
         return this.size;
     }
 
-
 }

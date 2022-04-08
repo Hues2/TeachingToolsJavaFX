@@ -21,11 +21,10 @@ public class QuickSort extends SortingAlgorithm{
 
     int partition(Bar[] randomBars, int low, int high) {
         int pivot = randomBars[high].getSize();
-        int i = (low-1); // index of smaller element
+        int i = (low - 1);
         for (int j = low; j < high; j++) {
             if (randomBars[j].getSize() <= pivot) {
                 i++;
-
                 swap(i,j);
                 thirdTabController.setSwappedStringBuilder(randomBars[i].getSize(),randomBars[j].getSize());
                 list = new Bar[randomBars.length];
@@ -47,8 +46,8 @@ public class QuickSort extends SortingAlgorithm{
         if (low < high) {
             int midIndex = partition(randomBars, low, high);
 
-            recursiveSort(randomBars, low, midIndex-1);
-            recursiveSort(randomBars, midIndex+1, high);
+            recursiveSort(randomBars, low, midIndex - 1);
+            recursiveSort(randomBars, midIndex + 1, high);
         }
     }
 
