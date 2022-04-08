@@ -3,10 +3,7 @@ package com.example.teachingtoolsjavafx.controllers;
 import com.example.teachingtoolsjavafx.Main;
 import com.example.teachingtoolsjavafx.bars.Bar;
 import com.example.teachingtoolsjavafx.bars.RandomBars;
-import com.example.teachingtoolsjavafx.sorting.algorithms.BubbleSort;
-import com.example.teachingtoolsjavafx.sorting.algorithms.InsertionSort;
-import com.example.teachingtoolsjavafx.sorting.algorithms.SelectionSort;
-import com.example.teachingtoolsjavafx.sorting.algorithms.SortingAlgorithm;
+import com.example.teachingtoolsjavafx.sorting.algorithms.*;
 import javafx.animation.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -94,6 +91,7 @@ public class SortingAnimationController {
         listOfAlgorithms.add(new BubbleSort(bars));
         listOfAlgorithms.add(new InsertionSort(bars));
         listOfAlgorithms.add(new SelectionSort(bars));
+        listOfAlgorithms.add(new QuickSort(bars));
 
         // Adds all the possible algorithms to the combo box
         setUpAlgorithmsComboBox();
@@ -298,6 +296,8 @@ public class SortingAnimationController {
             sortingAlgorithm = new InsertionSort(bars);
         } else if (indexOfCombo == 2){
             sortingAlgorithm = new SelectionSort(bars);
+        }else if (indexOfCombo == 3){
+            sortingAlgorithm = new QuickSort(bars);
         }
 
         sortAndDisplay();
