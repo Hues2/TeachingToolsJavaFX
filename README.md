@@ -17,7 +17,12 @@ To run the program, simply open the project in the IDE, open the Maven tab on th
 <p align="left">
 <img src="./src/main/resources/MavenReload.png" alt="Teaching Tool Logo" width="750" height="350"/>
 </p>
-
+Once the dependencies have been resolved, simply navigate to the Main class (src/main/java/com.example.teachingtoolsjavafx/Main)
+<br>
+and run the Main method:
+<p align="left">
+<img src="./src/main/resources/RunMain.png" alt="Teaching Tool Logo" width="750" height="350"/>
+</p>
 <hr>
 
 ## Key Features
