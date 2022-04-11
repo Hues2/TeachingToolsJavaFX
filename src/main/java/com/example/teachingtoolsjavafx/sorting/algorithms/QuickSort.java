@@ -54,7 +54,14 @@ public class QuickSort extends SortingAlgorithm{
     @Override
     public String definitionText() {
         return """
+                 Formal Definition:
+                 
                  The Quick Sort is one of the most efficient sorting algorithms and is based on the splitting of an array (partition) into smaller ones and swapping (exchange) based on the comparison with 'pivot' element selected.
+
+
+                Informal Definition:
+                
+                This algorithms initially splits the list into two subarrays. One sub-array will contain values smaller than the pivot value, and the other sub-array contains values that are bigger than the pivot. Then both sub-arrays will be recursively sorted in the same way.
 
 
 
@@ -72,7 +79,7 @@ public class QuickSort extends SortingAlgorithm{
                      }
                  }
                  
-                 Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
+                Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
                  """;
     }
 }

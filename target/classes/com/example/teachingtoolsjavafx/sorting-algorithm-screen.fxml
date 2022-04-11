@@ -49,7 +49,7 @@
    <HBox layoutY="640.0" prefHeight="20.0" prefWidth="947.0" style="-fx-background-color: #1c1c1c">
       <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backHome" text="Home">
          <HBox.margin>
-            <Insets left="75.0" top="25.0" />
+            <Insets left="25.0" top="25.0" />
          </HBox.margin>
       </Button>
       <ComboBox fx:id="comboBox" onAction="#reset" prefWidth="115.0">
@@ -101,5 +101,5 @@
          </value>
       </ColorPicker>
    </HBox>
-   <Label fx:id="timerLabel" graphicTextGap="3.0" layoutX="877.0" layoutY="666.0" prefHeight="25.0" prefWidth="115.0" text="Timer" textAlignment="CENTER" textFill="#f8f8f8" />
+   <Label fx:id="timerLabel" graphicTextGap="3.0" layoutX="855.0" layoutY="666.0" prefHeight="25.0" prefWidth="122.0" text="Timer" textAlignment="CENTER" textFill="#f8f8f8" />
 </AnchorPane>

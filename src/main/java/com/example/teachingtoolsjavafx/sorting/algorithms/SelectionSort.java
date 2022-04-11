@@ -40,7 +40,14 @@ public class SelectionSort extends SortingAlgorithm{
     @Override
     public String definitionText() {
         return """
-                Selection sort is an in-place comparison sorting algorithm. It has an O(n2) time complexity, which makes it inefficient on large lists, and generally performs worse than the similar insertion sort.
+                Formal Definition:
+                
+                The Selection sort divides the array into two parts: sorted and unsorted. The left part is sorted subarray and the right part is unsorted subarray. Initially, sorted subarray is empty and unsorted array is the complete given array.
+
+
+                Informal Definition:
+                
+                The selection sort compares the current number to the others in the list, if the current number is bigger than the one that it is being compared to, then they will swap positions. This way it creates a sorted subarray on the left, until the whole list is sorted.
 
 
 
@@ -67,6 +74,11 @@ public class SelectionSort extends SortingAlgorithm{
                          swap list[min] and list[i]
                       end if
                    end for
-                }""";
+                }
+                
+                
+                Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
+
+                """;
     }
 }

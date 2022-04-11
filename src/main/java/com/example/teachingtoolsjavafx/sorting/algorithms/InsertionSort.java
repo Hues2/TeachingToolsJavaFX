@@ -35,20 +35,33 @@ public class InsertionSort extends SortingAlgorithm{
     @Override
     public String definitionText() {
         return """
-                Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
+                Formal Definition:
+                
+                Insertion sort is the sorting mechanism where the sorted array is built having one item at a time. The array elements are compared with each other sequentially and then arranged simultaneously in some particular order.\s
 
 
+                Informal Definition:
+                
+                This algorithm creates a sorted sub-array one element at a time. It gets an element from the unsorted sub-array and "inserts" it into the correct position within the sorted sub-array.
+                
+                
 
                 PSEUDO CODE:
 
-                i ← 1
-                while i < length(A)
-                    j ← i
-                    while j > 0 and A[j-1] > A[j]
-                        swap A[j] and A[j-1]
-                        j ← j - 1
-                    end while
-                    i ← i + 1
-                end while""";
+                INSERTION-SORT(A)
+                   for i = 1 to n
+                   	key ← A [i]
+                    	j ← i – 1
+                  	 while j > = 0 and A[j] > key
+                   		A[j+1] ← A[j]
+                   		j ← j – 1
+                   	End while\s
+                   	A[j+1] ← key
+                  End for\s
+                  
+                  
+                Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
+  
+                  """;
     }
 }

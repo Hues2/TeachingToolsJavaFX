@@ -49,25 +49,49 @@ public class BubbleSort extends SortingAlgorithm {
     @Override
     public String definitionText(){
         return """
-                Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.
+                Formal Definition:
+                
+                Bubble sort, also referred to as comparison sort, is a simple sorting algorithm that repeatedly goes through the list, compares adjacent elements and swaps them if they are in the wrong order.
 
-
+                
+                Informal Definition:
+                
+                This algorithm checks if the current element in the list is bigger than the next element. If it is bigger, then they will swap, and it repeats this process until the biggest element is at the end of the list, and then it repeats the whole process until the whole list is sorted.
+                
+                
 
                 PSEUDO CODE:
 
-                bubbleSort(A : list of sortable items)
-                    n := length(A)
-                    repeat
-                        swapped := false
-                        for i := 1 to n-1 inclusive do
-                            /* if this pair is out of order */
-                            if A[i-1] > A[i] then
-                                /* swap them and remember something changed */
-                                swap(A[i-1], A[i])
-                                swapped := true
-                            end if
-                        end for
-                    until not swapped
-                end""";
+                bubbleSort( Arr[], totat_elements)
+                  \s
+                   for i = 0 to total_elements - 1 do:
+                      swapped = false
+                		
+                      for j = 0 to total_elements - i - 2 do:
+                     \s
+                         /* compare the adjacent elements */  \s
+                         if Arr[j] > Arr[j+1] then
+                            /* swap them */
+                            swap(Arr[j], Arr[j+1])		\s
+                            swapped = true
+                         end if
+                        \s
+                      end for
+                     \s
+                      /*if no number was swapped that means\s
+                      array is sorted now, break the loop.*/
+                     \s
+                      if(not swapped) then
+                         break
+                      end if
+                     \s
+                   end for
+                  \s
+                end
+                
+                
+                Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
+
+                """;
     }
 }
