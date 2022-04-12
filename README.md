@@ -34,7 +34,7 @@ and run the Main method:
     * Bubble Sort
     * Insertion Sort
     * Selection Sort
-    * Quick Sort
+    * Quick Sort (Process tab yet to be implemented)
 
 <hr>
 
