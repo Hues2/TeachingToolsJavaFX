@@ -25,8 +25,8 @@ public class QuickSort extends SortingAlgorithm{
         for (int j = low; j < high; j++) {
             if (randomBars[j].getSize() <= pivot) {
                 i++;
-                swap(i,j);
-                selectionSwapped(randomBars[i].getSize(),randomBars[j].getSize());
+                swap(i , j);
+                quickSwapped(randomBars[i].getSize(),randomBars[j].getSize());
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
                 listOfLists.add(list);
@@ -34,7 +34,7 @@ public class QuickSort extends SortingAlgorithm{
         }
 
         swap(i + 1, high);
-        selectionSwapped(randomBars[i + 1].getSize(), randomBars[high].getSize());
+        quickSwapped(randomBars[i + 1].getSize(), randomBars[high].getSize());
         list = new Bar[randomBars.length];
         System.arraycopy(randomBars, 0, list, 0, list.length);
         listOfLists.add(list);
@@ -49,6 +49,11 @@ public class QuickSort extends SortingAlgorithm{
             recursiveSort(randomBars, low, midIndex - 1);
             recursiveSort(randomBars, midIndex + 1, high);
         }
+    }
+
+    private void quickSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
+        addStep();
     }
 
     @Override
@@ -83,14 +88,4 @@ public class QuickSort extends SortingAlgorithm{
                  """;
     }
 
-    private void selectionSwapped(int min, int traversing) {
-        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
-        addStep();
-    }
-
-    private void selectionNotSwapped(int min, int traversing) {
-        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
-                " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
-        addStep();
-    }
 }

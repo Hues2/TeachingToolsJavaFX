@@ -20,16 +20,39 @@ public class InsertionSort extends SortingAlgorithm{
         while (currentIndex < randomBars.length) {
             int traversingIndex = currentIndex;
             while (traversingIndex > 0 && randomBars[traversingIndex].getSize() < randomBars[traversingIndex - 1].getSize()) {
+                insertionSwapped(randomBars[traversingIndex - 1].getSize(), randomBars[traversingIndex].getSize());
                 swap(traversingIndex, traversingIndex - 1);
-                selectionSwapped(randomBars[traversingIndex - 1].getSize(), randomBars[traversingIndex].getSize());
                 traversingIndex--;
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
                 listOfLists.add(list);
             }
+
             currentIndex++;
         }
         timer.setEndTime(System.nanoTime());
+    }
+
+    private void insertionSwapped(int beforeTraversing, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current bar size is " + traversing + ", which is smaller than the" +
+                " bar before it, which has a size of " + beforeTraversing + ", therefore they will swap\n");
+        addStep();
+    }
+
+    private void insertionNotSwapped(int beforeTraversing, int traversing) {
+        if (traversing == beforeTraversing){
+            this.stringBuilder = new StringBuilder("\nThe current bar size is " + traversing + ", which is the same as the" +
+                    " bar before it, therefore the bar has been located into the correct position\n");
+        }else{
+            this.stringBuilder = new StringBuilder("\nThe current bar size is " + traversing + ", which is bigger than the" +
+                    " bar before it, which has a size of " + beforeTraversing + ", therefore the bar has been located into the correct position\n");
+        }
+        addStep();
+    }
+
+    private void insertionFirstStep(){
+        this.stringBuilder = new StringBuilder("\nAs this is the first bar, it will remain in the same position for now \n");
+    addStep();
     }
 
     @Override
@@ -63,17 +86,6 @@ public class InsertionSort extends SortingAlgorithm{
                 Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
   
                   """;
-    }
-
-    private void selectionSwapped(int min, int traversing) {
-        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
-        addStep();
-    }
-
-    private void selectionNotSwapped(int min, int traversing) {
-        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
-                " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
-        addStep();
     }
 
 }
