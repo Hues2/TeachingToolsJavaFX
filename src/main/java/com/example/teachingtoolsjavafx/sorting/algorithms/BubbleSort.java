@@ -111,9 +111,4 @@ public class BubbleSort extends SortingAlgorithm {
                 " than the adjacent bar, which has a size of " + traversing + ", therefore they will NOT swap\n");
         addStep();
     }
-
-    @Override
-    public void addStep() {
-        stepExplanations.add(this.stringBuilder);
-    }
 }

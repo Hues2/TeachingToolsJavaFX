@@ -93,9 +93,4 @@ public class QuickSort extends SortingAlgorithm{
                 " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
         addStep();
     }
-
-    @Override
-    public void addStep() {
-        stepExplanations.add(this.stringBuilder);
-    }
 }

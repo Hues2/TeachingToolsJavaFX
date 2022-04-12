@@ -4,7 +4,6 @@ import com.example.teachingtoolsjavafx.bars.Bar;
 
 public class SelectionSort extends SortingAlgorithm {
     private int currentIndex = 0;
-    private int traversingIndex;
 
     public SelectionSort(Bar[] randomBars){
         this.randomBars = randomBars;
@@ -17,7 +16,7 @@ public class SelectionSort extends SortingAlgorithm {
     public void sort() {
         timer.setStart(System.nanoTime());
         while (currentIndex < randomBars.length - 1){
-            traversingIndex = currentIndex + 1;
+            int traversingIndex = currentIndex + 1;
             int min = currentIndex;
             while (traversingIndex < randomBars.length){
                 if (randomBars[traversingIndex].getSize() < randomBars[currentIndex].getSize()){
@@ -25,7 +24,7 @@ public class SelectionSort extends SortingAlgorithm {
                     selectionSwapped(randomBars[currentIndex].getSize(), randomBars[min].getSize());
                     swap(currentIndex, min);
                 }else{
-                    selectionNotSwapped(randomBars[currentIndex].getSize(), randomBars[traversingIndex].getSize());
+                    selectionNotSwapped(randomBars[min].getSize(), randomBars[traversingIndex].getSize());
                 }
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
@@ -37,10 +36,20 @@ public class SelectionSort extends SortingAlgorithm {
         timer.setEndTime(System.nanoTime());
     }
 
+    private void selectionSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
+        addStep();
+    }
 
-
-    public void swapped(int min, int traversing){
-        System.out.println("The current minimum bar size is " + min + ", however, the size of the bar that it is comparing it to is " + traversing + ", which is smaller, therefore they will swap.");
+    private void selectionNotSwapped(int min, int traversing) {
+        if (min == traversing){
+            this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
+                    " it is being compared to is " + traversing + ", as they are the same size, the bars will NOT swap\n");
+        }else{
+            this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
+                    " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
+        }
+        addStep();
     }
 
 
@@ -88,21 +97,4 @@ public class SelectionSort extends SortingAlgorithm {
 
                 """;
     }
-
-    private void selectionSwapped(int min, int traversing) {
-        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
-        addStep();
-    }
-
-    private void selectionNotSwapped(int min, int traversing) {
-        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
-                " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
-        addStep();
-    }
-
-    @Override
-    public void addStep() {
-        stepExplanations.add(this.stringBuilder);
-    }
-
 }

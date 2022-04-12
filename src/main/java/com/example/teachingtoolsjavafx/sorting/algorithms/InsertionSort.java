@@ -76,8 +76,4 @@ public class InsertionSort extends SortingAlgorithm{
         addStep();
     }
 
-    @Override
-    public void addStep() {
-        stepExplanations.add(this.stringBuilder);
-    }
 }
