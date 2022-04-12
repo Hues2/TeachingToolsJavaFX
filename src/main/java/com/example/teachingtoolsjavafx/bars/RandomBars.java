@@ -21,11 +21,11 @@ public class RandomBars {
         return listOfBars;
     }
 
-    public static void setBarDimensions(Bar bar, int n) {
-        bar.setWidth(SortingAnimationController.animationPaneWidth / n -
+    public static void setBarDimensions(Bar bar, int numberOfBars) {
+        bar.setWidth(SortingAnimationController.animationPaneWidth / numberOfBars -
                 SortingAnimationController.gapBetweenBars);
         bar.setHeight(((SortingAnimationController.animationPaneHeight - SortingAnimationController.heightOfHBox)
-                / n) * bar.getSize());
+                / numberOfBars) * bar.getSize());
     }
 
 }
