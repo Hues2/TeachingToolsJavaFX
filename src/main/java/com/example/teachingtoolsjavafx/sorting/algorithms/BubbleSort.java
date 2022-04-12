@@ -21,12 +21,12 @@ public class BubbleSort extends SortingAlgorithm {
         while (currentIndex < randomBars.length) {
             while (traversingIndex < randomBars.length - currentIndex) {
                 if (randomBars[traversingIndex - 1].getSize() >= randomBars[traversingIndex].getSize()) {
+                    bubbleSwapped(randomBars[traversingIndex].getSize(), randomBars[traversingIndex - 1].getSize());
                     // The previous bar is bigger, so the swap function is called:
                     swap(traversingIndex - 1, traversingIndex);
-                    thirdTabController.setSwappedStringBuilder(randomBars[traversingIndex].getSize(), randomBars[traversingIndex - 1].getSize());
                 }else{
                     // Here it didn't swap the numbers
-                    thirdTabController.setNotSwappedStringBuilder(randomBars[traversingIndex - 1].getSize(), randomBars[traversingIndex].getSize());
+                    bubbleNotSwapped(randomBars[traversingIndex].getSize(), randomBars[traversingIndex - 1].getSize());
 
                 }
                 traversingIndex++;
@@ -93,5 +93,27 @@ public class BubbleSort extends SortingAlgorithm {
                 Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
 
                 """;
+    }
+
+    private void bubbleSwapped(int traversing, int beforeTraversing) {
+        if (traversing == beforeTraversing){
+            this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is the" +
+                    " same size as the adjacent bar. The default action for this scenario is to swap the bars anyway.\n");
+        }else{
+            this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is bigger" +
+                    " than the adjacent bar, which has a size of " + traversing + ", therefore they will swap\n");
+        }
+        addStep();
+    }
+
+    private void bubbleNotSwapped(int traversing, int beforeTraversing) {
+        this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is smaller" +
+                " than the adjacent bar, which has a size of " + traversing + ", therefore they will NOT swap\n");
+        addStep();
+    }
+
+    @Override
+    public void addStep() {
+        stepExplanations.add(this.stringBuilder);
     }
 }

@@ -21,7 +21,7 @@ public class InsertionSort extends SortingAlgorithm{
             int traversingIndex = currentIndex;
             while (traversingIndex > 0 && randomBars[traversingIndex].getSize() < randomBars[traversingIndex - 1].getSize()) {
                 swap(traversingIndex, traversingIndex - 1);
-                thirdTabController.setSwappedStringBuilder(randomBars[traversingIndex - 1].getSize(), randomBars[traversingIndex].getSize());
+                selectionSwapped(randomBars[traversingIndex - 1].getSize(), randomBars[traversingIndex].getSize());
                 traversingIndex--;
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
@@ -63,5 +63,21 @@ public class InsertionSort extends SortingAlgorithm{
                 Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
   
                   """;
+    }
+
+    private void selectionSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
+        addStep();
+    }
+
+    private void selectionNotSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
+                " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
+        addStep();
+    }
+
+    @Override
+    public void addStep() {
+        stepExplanations.add(this.stringBuilder);
     }
 }

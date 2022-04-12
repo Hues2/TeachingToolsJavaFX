@@ -26,7 +26,7 @@ public class QuickSort extends SortingAlgorithm{
             if (randomBars[j].getSize() <= pivot) {
                 i++;
                 swap(i,j);
-                thirdTabController.setSwappedStringBuilder(randomBars[i].getSize(),randomBars[j].getSize());
+                selectionSwapped(randomBars[i].getSize(),randomBars[j].getSize());
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
                 listOfLists.add(list);
@@ -34,7 +34,7 @@ public class QuickSort extends SortingAlgorithm{
         }
 
         swap(i + 1, high);
-        thirdTabController.setSwappedStringBuilder(randomBars[i + 1].getSize(), randomBars[high].getSize());
+        selectionSwapped(randomBars[i + 1].getSize(), randomBars[high].getSize());
         list = new Bar[randomBars.length];
         System.arraycopy(randomBars, 0, list, 0, list.length);
         listOfLists.add(list);
@@ -81,5 +81,21 @@ public class QuickSort extends SortingAlgorithm{
                  
                 Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
                  """;
+    }
+
+    private void selectionSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
+        addStep();
+    }
+
+    private void selectionNotSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
+                " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
+        addStep();
+    }
+
+    @Override
+    public void addStep() {
+        stepExplanations.add(this.stringBuilder);
     }
 }

@@ -106,7 +106,7 @@ public class SortingAnimationController {
         sortAndDisplay();
         setUpTab1TextArea();
         secondTabController = new SecondTabController(listOfLists);
-        thirdTabController = sortingAlgorithm.thirdTabController;
+        thirdTabController = sortingAlgorithm;
         tab2TextArea.appendText(secondTabController.getList(counter));
         tab3TextArea.appendText(thirdTabController.getExplanation(counter));
 
@@ -173,8 +173,11 @@ public class SortingAnimationController {
                     setNewPositionsAndRepaint();
 
                     tab2TextArea.appendText(secondTabController.getList(counter));
-                    if (thirdTabController.getExplanation(counter) != null){
-                        tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+
+                    if (!(sortingAlgorithm instanceof QuickSort)){
+                        if (thirdTabController.getExplanation(counter) != null){
+                            tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+                        }
                     }
 
                     counter++;
@@ -240,10 +243,11 @@ public class SortingAnimationController {
             }
             setNewPositionsAndRepaint();
             tab2TextArea.appendText(secondTabController.getList(counter));
-            if (thirdTabController.getExplanation(counter) != null){
-                tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+            if (!(sortingAlgorithm instanceof QuickSort)){
+                if (thirdTabController.getExplanation(counter) != null){
+                    tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+                }
             }
-
 
 
         }else{
@@ -268,7 +272,9 @@ public class SortingAnimationController {
 
             setNewPositionsAndRepaint();
             tab2TextArea.appendText(secondTabController.getList(counter));
-            tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+            if (!(sortingAlgorithm instanceof QuickSort)) {
+                tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+            }
 
         }
         if (counter == 0){
@@ -303,7 +309,7 @@ public class SortingAnimationController {
         sortAndDisplay();
         // Change the tabs text areas
         secondTabController = new SecondTabController(listOfLists);
-        thirdTabController = sortingAlgorithm.thirdTabController;
+        thirdTabController = sortingAlgorithm;
 
         setUpTab1TextArea();
 
@@ -311,7 +317,12 @@ public class SortingAnimationController {
         tab2TextArea.appendText(secondTabController.getList(counter));
 
         tab3TextArea.clear();
-        tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+        if (!(sortingAlgorithm instanceof QuickSort)){
+            tab3TextArea.appendText(thirdTabController.getExplanation(counter));
+        }else{
+            tab3TextArea.setText("Yet to be implemented for this algorithm, as it uses recursion.");
+        }
+
 
         // Set up the buttons to be disabled or enabled
         buttonController.newListButtons();

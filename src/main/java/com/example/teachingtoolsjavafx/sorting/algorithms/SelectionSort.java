@@ -2,7 +2,7 @@ package com.example.teachingtoolsjavafx.sorting.algorithms;
 
 import com.example.teachingtoolsjavafx.bars.Bar;
 
-public class SelectionSort extends SortingAlgorithm{
+public class SelectionSort extends SortingAlgorithm {
     private int currentIndex = 0;
     private int traversingIndex;
 
@@ -22,10 +22,10 @@ public class SelectionSort extends SortingAlgorithm{
             while (traversingIndex < randomBars.length){
                 if (randomBars[traversingIndex].getSize() < randomBars[currentIndex].getSize()){
                     min = traversingIndex;
+                    selectionSwapped(randomBars[currentIndex].getSize(), randomBars[min].getSize());
                     swap(currentIndex, min);
-                    thirdTabController.setSwappedStringBuilder(randomBars[currentIndex].getSize(), randomBars[min].getSize());
                 }else{
-                    thirdTabController.setNotSwappedStringBuilder(randomBars[currentIndex].getSize(), randomBars[min].getSize());
+                    selectionNotSwapped(randomBars[currentIndex].getSize(), randomBars[traversingIndex].getSize());
                 }
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
@@ -36,6 +36,13 @@ public class SelectionSort extends SortingAlgorithm{
         }
         timer.setEndTime(System.nanoTime());
     }
+
+
+
+    public void swapped(int min, int traversing){
+        System.out.println("The current minimum bar size is " + min + ", however, the size of the bar that it is comparing it to is " + traversing + ", which is smaller, therefore they will swap.");
+    }
+
 
     @Override
     public String definitionText() {
@@ -81,4 +88,21 @@ public class SelectionSort extends SortingAlgorithm{
 
                 """;
     }
+
+    private void selectionSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
+        addStep();
+    }
+
+    private void selectionNotSwapped(int min, int traversing) {
+        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", and the bar size that" +
+                " it is being compared to is " + traversing + ", as this is bigger, the bars will NOT swap\n");
+        addStep();
+    }
+
+    @Override
+    public void addStep() {
+        stepExplanations.add(this.stringBuilder);
+    }
+
 }

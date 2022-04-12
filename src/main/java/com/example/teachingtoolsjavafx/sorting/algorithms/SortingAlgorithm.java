@@ -5,7 +5,7 @@ import com.example.teachingtoolsjavafx.controllers.ThirdTabController;
 
 import java.util.ArrayList;
 
-public abstract class SortingAlgorithm {
+public abstract class SortingAlgorithm extends ThirdTabController{
      public Bar[] randomBars;
      public ArrayList<Bar[]> listOfLists = new ArrayList<>();
      public Bar[] list;
@@ -23,7 +23,6 @@ public abstract class SortingAlgorithm {
      }
 
      public abstract String definitionText();
-     public ThirdTabController thirdTabController = new ThirdTabController();
 
      public AlgorithmTimer timer = new AlgorithmTimer();
      public String getTotalTime(){
