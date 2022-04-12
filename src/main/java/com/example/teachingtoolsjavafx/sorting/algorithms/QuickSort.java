@@ -26,15 +26,13 @@ public class QuickSort extends SortingAlgorithm{
             if (randomBars[j].getSize() <= pivot) {
                 i++;
                 swap(i , j);
-                quickSwapped(randomBars[i].getSize(),randomBars[j].getSize());
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
                 listOfLists.add(list);
             }
         }
-
         swap(i + 1, high);
-        quickSwapped(randomBars[i + 1].getSize(), randomBars[high].getSize());
+
         list = new Bar[randomBars.length];
         System.arraycopy(randomBars, 0, list, 0, list.length);
         listOfLists.add(list);
@@ -45,20 +43,19 @@ public class QuickSort extends SortingAlgorithm{
     void recursiveSort(Bar[] randomBars, int low, int high) {
         if (low < high) {
             int midIndex = partition(randomBars, low, high);
-
             recursiveSort(randomBars, low, midIndex - 1);
             recursiveSort(randomBars, midIndex + 1, high);
         }
     }
 
-    private void quickSwapped(int min, int traversing) {
-        this.stringBuilder = new StringBuilder("\nThe current minimum bar size is " + min + ", however, the bar size that it is being compared to is " + traversing + ", as this is smaller, the bars will swap\n");
-        addStep();
-    }
+
 
     @Override
     public String definitionText() {
         return """
+                 (When two bars turn green, that means they are swapping positions. If two bars don't flash green, that means that there are no bars swapping in that instance.)
+                 
+                 
                  Formal Definition:
                  
                  The Quick Sort is one of the most efficient sorting algorithms and is based on the splitting of an array (partition) into smaller ones and swapping (exchange) based on the comparison with 'pivot' element selected.

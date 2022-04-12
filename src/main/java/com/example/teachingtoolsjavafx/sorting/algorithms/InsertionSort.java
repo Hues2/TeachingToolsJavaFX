@@ -58,6 +58,9 @@ public class InsertionSort extends SortingAlgorithm{
     @Override
     public String definitionText() {
         return """
+                (When two bars turn green, that means they are swapping positions. If two bars don't flash green, that means that there are no bars swapping in that instance.)
+                
+                
                 Formal Definition:
                 
                 Insertion sort is the sorting mechanism where the sorted array is built having one item at a time. The array elements are compared with each other sequentially and then arranged simultaneously in some particular order.\s

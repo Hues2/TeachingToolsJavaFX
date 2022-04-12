@@ -27,17 +27,14 @@ public class BubbleSort extends SortingAlgorithm {
                 }else{
                     // Here it didn't swap the numbers
                     bubbleNotSwapped(randomBars[traversingIndex].getSize(), randomBars[traversingIndex - 1].getSize());
-
                 }
                 traversingIndex++;
-
                 // Add the new random bars list to the list of lists
                 // Even if a bar has not swapped, it will be added, as this is a step in the algorithm that
                 // needs to be displayed
                 list = new Bar[randomBars.length];
                 System.arraycopy(randomBars, 0, list, 0, list.length);
                 listOfLists.add(list);
-
             }
             traversingIndex = 1;
             currentIndex++;
@@ -45,10 +42,29 @@ public class BubbleSort extends SortingAlgorithm {
         timer.setEndTime(System.nanoTime());
     }
 
+    private void bubbleSwapped(int traversing, int beforeTraversing) {
+        if (traversing == beforeTraversing){
+            this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is the" +
+                    " same size as the adjacent bar. The default action for this scenario is to swap the bars anyway.\n");
+        }else{
+            this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is bigger" +
+                    " than the adjacent bar, which has a size of " + traversing + ", therefore they will swap\n");
+        }
+        addStep();
+    }
+
+    private void bubbleNotSwapped(int traversing, int beforeTraversing) {
+        this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is smaller" +
+                " than the adjacent bar, which has a size of " + traversing + ", therefore they will NOT swap\n");
+        addStep();
+    }
 
     @Override
     public String definitionText(){
         return """
+                (When two bars turn green, that means they are swapping positions. If two bars don't flash green, that means that there are no bars swapping in that instance.)
+                
+                
                 Formal Definition:
                 
                 Bubble sort, also referred to as comparison sort, is a simple sorting algorithm that repeatedly goes through the list, compares adjacent elements and swaps them if they are in the wrong order.
@@ -93,22 +109,5 @@ public class BubbleSort extends SortingAlgorithm {
                 Definition and pseudocode provided by InterviewBit, https://www.interviewbit.com/tutorial/quicksort-algorithm/
 
                 """;
-    }
-
-    private void bubbleSwapped(int traversing, int beforeTraversing) {
-        if (traversing == beforeTraversing){
-            this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is the" +
-                    " same size as the adjacent bar. The default action for this scenario is to swap the bars anyway.\n");
-        }else{
-            this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is bigger" +
-                    " than the adjacent bar, which has a size of " + traversing + ", therefore they will swap\n");
-        }
-        addStep();
-    }
-
-    private void bubbleNotSwapped(int traversing, int beforeTraversing) {
-        this.stringBuilder = new StringBuilder("\nThe current bar has a size of " + beforeTraversing + ", which is smaller" +
-                " than the adjacent bar, which has a size of " + traversing + ", therefore they will NOT swap\n");
-        addStep();
     }
 }

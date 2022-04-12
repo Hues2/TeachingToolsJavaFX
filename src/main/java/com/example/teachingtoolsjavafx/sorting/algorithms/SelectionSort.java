@@ -56,6 +56,9 @@ public class SelectionSort extends SortingAlgorithm {
     @Override
     public String definitionText() {
         return """
+                (When two bars turn green, that means they are swapping positions. If two bars don't flash green, that means that there are no bars swapping in that instance.)
+                
+                
                 Formal Definition:
                 
                 The Selection sort divides the array into two parts: sorted and unsorted. The left part is sorted subarray and the right part is unsorted subarray. Initially, sorted subarray is empty and unsorted array is the complete given array.
